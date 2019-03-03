@@ -1,0 +1,240 @@
+# MADAMIRA Configuration XML Schema
+#  TODO: Will need to expand TOKAN schemes later; for now, just these aliases
+
+default namespace = "urn:edu.columbia.ccls.madamira.configuration:0.1"
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+
+start |= madamira_configuration_ref | input_ref | output_ref | error_ref
+
+error_ref =
+    element error_report {
+        attribute error_type { xsd:string },
+        xsd:string
+    }
+
+input_ref =
+    element madamira_input {
+        madamira_configuration_ref?,
+        in_doc_ref
+    }
+
+output_ref =
+    element madamira_output {
+        element out_doc {
+          attribute id { xsd:string },
+            out_seg_ref*
+        }
+    }
+
+madamira_configuration_ref =
+    element madamira_configuration {
+        preprocessing_ref?,
+		overall_vars_ref?,
+		requested_output_ref?,
+		tokenization_ref?
+    }
+
+preprocessing_ref =
+    element preprocessing {
+        [a:default="true"]
+        attribute separate_punct { xsd:boolean }?,
+        [a:default="false"]
+        attribute sentence_ids { xsd:boolean }?,
+        [a:default="UTF8"]
+        attribute input_encoding { "Buckwalter" | "SafeBW" | "UTF8" }?
+    }
+
+overall_vars_ref =
+    element overall_vars {
+        [a:default="TOP"]
+        attribute output_analyses { "ALL" | "TOP" }?,
+        [a:default="Buckwalter"]
+        attribute output_encoding { "Buckwalter" | "SafeBW" | "UTF8" }?,
+        [a:default="MSA"]
+        attribute dialect { "MSA" | "EGY" }?,
+        [a:default="NONE"]
+        attribute morph_backoff { "NONE" | "NOAN_PROP" | "NOAN_ALL" | "ADD_PROP" | "ADD_ALL" }?,
+        [a:default="false"]
+        attribute analyze_only { xsd:boolean }?
+    }
+
+requested_output_ref =
+    element requested_output {
+        element req_variable {
+            attribute name {
+            "BPC" | "NER" |
+            "STEM" | "GLOSS" | "LEMMA" | "DIAC" | "POS" | "GEN" | "NUM" | "PER" | "ASP" | "CAS" |
+            "ENC0" | "ENC1" | "ENC2" | "MOD" | "PRC0" | "PRC1" | "PRC2" |
+            "PRC3" | "STT" | "VOX" | "BW" | "SOURCE" | "PREPROCESSED" |
+             "PREGLOSS" | "SUFGLOSS" |
+             "LENGTH" |       ## Number of characters in word
+             "OFFSET" |       ## Number of character from start of sentence to start of word
+             "TYPE" },        ## Word type
+            [a:default="false"]  # If not specified
+            attribute value { xsd:boolean }
+	    }*
+    }
+
+#tokenization_ref =
+#    element tokenization {
+#        element scheme {
+#            attribute alias { "ATB" | "D3" | "ATB4MT" | "D34MT" | "D1" | "D2" | "D3_BWFORM" |
+#                              "ATB_BWFORM" | "D3_BWPOS" | "ATB_EVAL"  | "ATB_BWFORM_EVAL" | xsd:string }
+#        }*
+#    }
+
+# proposed tokenization with schema language extension
+tokenization_ref =
+    element tokenization {
+        element scheme {
+            attribute alias { "ATB" | "S2" | "D3" | "ATB4MT" | "D34MT" | "D1" | "D2" | "D3_BWFORM" |
+                              "ATB_BWFORM" | "D3_BWPOS" | "ATB_EVAL"  | "ATB_BWFORM_EVAL" | xsd:string },
+            element scheme_override {
+                attribute alias { xsd:string },
+                attribute token_delimiter { xsd:string }?, #DEPRECATED, replaced with proclitic,stem,enclitic delimiters
+                attribute proclitic_delimiter { xsd:string }?,
+                attribute stem_delimiter { xsd:string }?,
+                attribute enclitic_delimiter { xsd:string }?,
+                attribute form_delimiter { xsd:string }?,
+                attribute mark_no_analysis { xsd:boolean }?,
+                attribute include_non_arabic { xsd:boolean }?,
+                attribute tokenize_from_BW { xsd:boolean }?,
+                element split_term_spec {
+                    attribute term { "REST" | "PRC3" | "QUES" | "PRC2" |"CONJ" | "PART" |
+                    "FUT" | "S+" | "PRC0" | "ART" | "DART" | "AL+" | "NART" | "ENC0" | "PRON" }
+                }*,
+                element token_form_spec {
+                    attribute proclitic_mark { xsd:string }?,
+                    attribute enclitic_mark { xsd:string }?,
+					attribute token_form_base { "WORD" | "POS_MADA" | "POS_BW" | "POS_CATIB" |
+                                        "POS_PENN" | "POS_ALMOR" | "LEXEME" | "GLOSS" |
+                                         "STEM" | "SURF" |  "BWFORM" |  "BWTAG" }?,
+					attribute transliteration { "Buckwalter" | "UTF8" | "Safe_Buckwalter" }?,
+                    element normalization {
+                       attribute type { "ALEF" | "YAA" | "DIGIT" | "LEFTPAREN" |
+                       "RIGHTPAREN" | "TEHMARBUTA" | "HAMZA" | "PAREN" | "LEX" | "DIAC" }
+                    }*
+                }*
+            }?
+        }*
+    }
+
+in_doc_ref =
+    element in_doc {
+       attribute id { xsd:string },
+       element in_seg {
+           attribute id { xsd:string },
+           xsd:string
+       }*
+    }
+
+
+out_seg_ref =
+    element out_seg {                   ## Sentence-level output information
+       attribute id { xsd:string },
+       element segment_info {
+          element preprocessed {
+            xsd:string
+          }?,
+          bpc_ref?,
+          ner_ref?
+       },
+       word_info_ref
+   }
+
+bpc_ref =
+    element bpc {
+        element chunk {
+            attribute id { xsd:integer },
+            attribute type { xsd:string },
+            tok_ref+
+        }*
+    }
+ner_ref =
+    element ner {
+        element ne {
+            attribute id { xsd:integer },
+            attribute type { xsd:string },
+            tok_ref+
+        }*
+    }
+
+
+tok_ref =
+    element tok {
+        attribute id { xsd:integer },
+          attribute form0 { xsd:string }?,        ## output a maximum of 10 forms per token, minimum 0
+          attribute form1 { xsd:string }?,
+          attribute form2 { xsd:string }?,
+          attribute form3 { xsd:string }?,
+          attribute form4 { xsd:string }?,
+          attribute form5 { xsd:string }?,
+          attribute form6 { xsd:string }?,
+          attribute form7 { xsd:string }?,
+          attribute form8 { xsd:string }?,
+          attribute form9 { xsd:string }?
+    }
+
+word_info_ref =
+    element word_info {
+          word_ref*
+    }
+
+word_ref =
+    element word {                          ## Word-level output information
+         attribute id { xsd:integer },
+         attribute word {xsd:string},
+         attribute length { xsd:integer }?,
+         attribute offset { xsd:integer }?, ## number of characters from start
+                                            ## of sentence to start of word
+          attribute type { "ARABIC" | "NON-ARABIC" | "NO-ANALYSIS" }?,
+         element svm_prediction {
+            morph_feature_set_ref
+         }?,
+         element analysis {
+            attribute rank { xsd:string }?,
+            attribute score { xsd:double }?,
+            morph_feature_set_ref
+         }*,
+         element tokenized {
+            attribute scheme { xsd:string },
+            tok_ref*
+         }*
+      }
+
+
+morph_feature_set_ref =
+    element morph_feature_set {
+       attribute diac { xsd:string }?,
+       attribute lemma { xsd:string }?,
+       attribute bw { xsd:string }?,
+       attribute gloss { xsd:string }?,
+       attribute pregloss { xsd:string }?,
+       attribute sufgloss { xsd:string }?,
+       attribute pos { xsd:string }?,
+       attribute prc3 { xsd:string }?,
+       attribute prc2 { xsd:string }?,
+       attribute prc1 { xsd:string }?,
+       attribute prc0 { xsd:string }?,
+       attribute per { xsd:string }?,
+       attribute asp { xsd:string }?,
+       attribute vox { xsd:string }?,
+       attribute mod { xsd:string }?,
+       attribute gen { xsd:string }?,
+       attribute num { xsd:string }?,
+       attribute stt { xsd:string }?,
+       attribute cas { xsd:string }?,
+       attribute enc0 { xsd:string }?,
+       attribute enc1 { xsd:string }?,
+       attribute enc2 { xsd:string }?,
+       attribute source { xsd:string }?,
+       attribute stem { xsd:string }?
+    }
+
+    # An identifier is a sequence of letters and digits. The first character
+    # must be a letter or the underscore character _. Upper and lower
+    # case letters are different, and identifiers may have any length.
+    identifier |= xsd:string { pattern="[a-zA-Z_][a-zA-Z_0-9]*" }
+
+    # M.N, where M and N are positive integers.
+    version_num |= xsd:string { pattern="(0|[1-9]([0-9]*))\.(0|[1-9]([0-9]*))" }

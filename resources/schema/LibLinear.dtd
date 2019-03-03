@@ -1,0 +1,45 @@
+<?xml encoding="UTF-8"?>
+
+<!--
+Cogent SVM Configuration XML Schema
+
+-->
+
+<!ELEMENT LibLinear_configuration (overall_params,
+                                       training_params,
+                                       prediction_params)>
+<!ATTLIST LibLinear_configuration
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.cogent.libLinear.configuration:0.1'>
+
+<!ELEMENT overall_params EMPTY>
+<!ATTLIST overall_params
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.cogent.libLinear.configuration:0.1'
+  quiet_mode NMTOKEN #IMPLIED>
+
+<!ELEMENT training_params EMPTY>
+<!ATTLIST training_params
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.cogent.libLinear.configuration:0.1'
+  solver_type (0|1|2|3|4|5|6|7|11|12|13) #IMPLIED
+  C_parameter CDATA #IMPLIED
+  p_parameter CDATA #IMPLIED
+  eps CDATA #IMPLIED
+  bias CDATA #IMPLIED
+  class_weights CDATA #IMPLIED
+  n_fold_cross_validation CDATA #IMPLIED>
+
+<!ELEMENT prediction_params EMPTY>
+<!ATTLIST prediction_params
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.cogent.libLinear.configuration:0.1'
+  predict_probs NMTOKEN #IMPLIED>
+
+<!--
+An identifier is a sequence of letters and digits. The first character
+must be a letter or the underscore character _. Upper and lower 
+case letters are different, and identifiers may have any length.
+-->
+
+<!ENTITY % identifier "CDATA">
+
+<!-- M.N, where M and N are positive integers.  -->
+
+<!ENTITY % version_num "CDATA">

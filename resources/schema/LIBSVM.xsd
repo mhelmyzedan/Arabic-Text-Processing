@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Cogent SVM Configuration XML Schema
+  
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:edu.columbia.ccls.cogent.libSVM.configuration:0.1" xmlns:ns1="urn:edu.columbia.ccls.cogent.libSVM.configuration:0.1">
+  <xs:element name="LIBSVM_configuration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ns1:overall_params"/>
+        <xs:element ref="ns1:training_params"/>
+        <xs:element ref="ns1:prediction_params"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="overall_params">
+    <xs:complexType>
+      <xs:attribute name="svm_type" default="C_SVC">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="C_SVC"/>
+            <xs:enumeration value="NU_SVC"/>
+            <xs:enumeration value="ONE_CLASS"/>
+            <xs:enumeration value="EPSILON_SVR"/>
+            <xs:enumeration value="NU_SVR"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="kernel_type" default="RBF">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="LINEAR"/>
+            <xs:enumeration value="POLY"/>
+            <xs:enumeration value="RBF"/>
+            <xs:enumeration value="SIGMOID"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="degree" type="xs:integer"  default="3"/>
+      <xs:attribute name="gamma" type="xs:double" default="0.0"/>
+      <xs:attribute name="coeff0" type="xs:double" default="0.0"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="training_params">
+    <xs:complexType>
+      <xs:attribute name="cache_size" type="xs:double" default="100.0"/>
+      <xs:attribute name="eps" type="xs:double" default="0.001"/>
+      <xs:attribute name="C_parameter" type="xs:double" default="1.0"/>
+      <xs:attribute name="nu_parameter" type="xs:double" default="0.5"/>
+      <xs:attribute name="p_parameter" type="xs:double" default="0.1"/>
+      <xs:attribute name="shrinking" type="xs:boolean" default="true"/>
+      <xs:attribute name="probability" type="xs:boolean" default="false"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="prediction_params">
+    <xs:complexType>
+      <xs:attribute name="predict_probs" type="xs:boolean" default="false"/>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    An identifier is a sequence of letters and digits. The first character
+    must be a letter or the underscore character _. Upper and lower 
+    case letters are different, and identifiers may have any length.
+  -->
+  <xs:simpleType name="identifier">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-zA-Z_][a-zA-Z_0-9]*"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- M.N, where M and N are positive integers. -->
+  <xs:simpleType name="version_num">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(0|[1-9]([0-9]*))\.(0|[1-9]([0-9]*))"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

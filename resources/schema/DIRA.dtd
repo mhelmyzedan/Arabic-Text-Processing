@@ -1,0 +1,359 @@
+<?xml encoding="UTF-8"?>
+
+<!--
+DIRA XML Schema (Draft) v0.1 
+
+-->
+
+<!ELEMENT user_configuration (output_lang_or_dialect+,
+                                  inflection+,
+                                  ranking_preference?)>
+<!ATTLIST user_configuration xmlns CDATA #FIXED 'urn:edu.columbia.ccls.dira:0.2'
+  
+  num_expansions CDATA #REQUIRED
+  show_scores (yes|no) #REQUIRED
+  show_features (yes|no) #REQUIRED
+  show_gloss (yes|no) #REQUIRED>
+
+<!ELEMENT output_lang_or_dialect EMPTY>
+<!ATTLIST output_lang_or_dialect
+  
+  value (MSA|EGY|all) #REQUIRED>
+
+<!ELEMENT inflection EMPTY>
+<!ATTLIST inflection
+  
+  value (MSA|EGY|none|all) #REQUIRED>
+
+<!ELEMENT input (user_configuration?,lemma+)>
+<!ATTLIST input
+ xmlns CDATA #FIXED 'urn:edu.columbia.ccls.dira:0.2'
+  >
+
+<!ELEMENT lemma EMPTY>
+<!ATTLIST lemma
+  
+  id CDATA #REQUIRED
+  languageOrDialect (English|MSA) #REQUIRED
+  value CDATA #REQUIRED
+  pos (verb|noun|all) #IMPLIED>
+
+<!ELEMENT output (for_lemma)*>
+<!ATTLIST output
+ xmlns CDATA #FIXED 'urn:edu.columbia.ccls.dira:0.2'
+  >
+
+<!ELEMENT for_lemma (expansion*,warning?,error?)>
+<!ATTLIST for_lemma
+  
+  id CDATA #REQUIRED
+  value CDATA #REQUIRED
+  pos CDATA #REQUIRED
+  gloss CDATA #IMPLIED>
+
+<!ENTITY % attlist.exception "
+  code CDATA #REQUIRED
+  interpretation CDATA #REQUIRED">
+
+<!ELEMENT warning EMPTY>
+<!ATTLIST warning
+  
+  %attlist.exception;>
+
+<!ELEMENT error EMPTY>
+<!ATTLIST error
+  
+  %attlist.exception;>
+
+<!ENTITY % attlist.expansion "
+  languageOrDialect (English|MSA|EGY) #REQUIRED
+  inflection (MSA|EGY|none) #REQUIRED
+  features CDATA #IMPLIED">
+
+<!ELEMENT expansion EMPTY>
+<!ATTLIST expansion
+  
+  value CDATA #REQUIRED
+  %attlist.expansion;
+  score CDATA #IMPLIED>
+
+<!ELEMENT ranking_preference (features)?>
+<!ATTLIST ranking_preference
+  
+  alpha CDATA #REQUIRED>
+
+<!ELEMENT features (noun?,verb?)>
+<!ATTLIST features
+  >
+
+<!ELEMENT noun (n_prc3,n_prc2,n_prc1,n_prc0,
+                    n_per,n_asp,n_vox,n_mod,n_gen,
+                    n_num,n_stt,n_cas,n_enc0,n_enc1,
+                    n_enc2,n_source,n_rat)>
+<!ATTLIST noun
+  >
+
+<!ELEMENT n_prc3 EMPTY>
+<!ATTLIST n_prc3
+  
+  W_0 CDATA #REQUIRED
+  W_-gt-a_ques CDATA #REQUIRED>
+
+<!ELEMENT n_prc2 EMPTY>
+<!ATTLIST n_prc2
+  
+  W_fa_conn CDATA #REQUIRED
+  W_fa_rc CDATA #REQUIRED
+  W_na CDATA #REQUIRED
+  W_0 CDATA #REQUIRED
+  W_wa_part CDATA #REQUIRED
+  W_wa_sub CDATA #REQUIRED
+  W_fa_sub CDATA #REQUIRED
+  W_wa_conj CDATA #REQUIRED
+  W_fa_conj CDATA #REQUIRED>
+
+<!ELEMENT n_prc1 EMPTY>
+<!ATTLIST n_prc1
+  
+  W_ka_prep CDATA #REQUIRED
+  W_0 CDATA #REQUIRED
+  W_li_prep CDATA #REQUIRED
+  W_bi_prep CDATA #REQUIRED
+  W_la_prep CDATA #REQUIRED>
+
+<!ELEMENT n_prc0 EMPTY>
+<!ATTLIST n_prc0
+  
+  W_0 CDATA #REQUIRED
+  W_Al_det CDATA #REQUIRED
+  W_Aa_prondem CDATA #REQUIRED>
+
+<!ELEMENT n_per EMPTY>
+<!ATTLIST n_per
+  
+  W_na CDATA #REQUIRED>
+
+<!ELEMENT n_asp EMPTY>
+<!ATTLIST n_asp
+  
+  W_na CDATA #REQUIRED>
+
+<!ELEMENT n_vox EMPTY>
+<!ATTLIST n_vox
+  
+  W_na CDATA #REQUIRED>
+
+<!ELEMENT n_mod EMPTY>
+<!ATTLIST n_mod
+  
+  W_na CDATA #REQUIRED>
+
+<!ELEMENT n_gen EMPTY>
+<!ATTLIST n_gen
+  
+  W_m CDATA #REQUIRED
+  W_f CDATA #REQUIRED>
+
+<!ELEMENT n_num EMPTY>
+<!ATTLIST n_num
+  
+  W_s CDATA #REQUIRED
+  W_d CDATA #REQUIRED
+  W_p CDATA #REQUIRED>
+
+<!ELEMENT n_stt EMPTY>
+<!ATTLIST n_stt
+  
+  W_i CDATA #REQUIRED
+  W_c CDATA #REQUIRED
+  W_d CDATA #REQUIRED
+  W_u CDATA #REQUIRED>
+
+<!ELEMENT n_cas EMPTY>
+<!ATTLIST n_cas
+  
+  W_u CDATA #REQUIRED
+  W_n CDATA #REQUIRED
+  W_a CDATA #REQUIRED
+  W_g CDATA #REQUIRED>
+
+<!ELEMENT n_enc0 EMPTY>
+<!ATTLIST n_enc0
+  
+  W_3mp_poss CDATA #REQUIRED
+  W_2mp_poss CDATA #REQUIRED
+  W_3ms_poss CDATA #REQUIRED
+  W_0 CDATA #REQUIRED
+  W_2fp_poss CDATA #REQUIRED
+  W_1s_poss CDATA #REQUIRED
+  W_1p_poss CDATA #REQUIRED
+  W_2fs_poss CDATA #REQUIRED
+  W_3d_poss CDATA #REQUIRED
+  W_3fp_poss CDATA #REQUIRED
+  W_2d_poss CDATA #REQUIRED
+  W_3fs_poss CDATA #REQUIRED
+  W_2ms_poss CDATA #REQUIRED>
+
+<!ELEMENT n_enc1 EMPTY>
+<!ATTLIST n_enc1
+  
+  W_0 CDATA #REQUIRED>
+
+<!ELEMENT n_enc2 EMPTY>
+<!ATTLIST n_enc2
+  
+  W_0 CDATA #REQUIRED>
+
+<!ELEMENT n_source EMPTY>
+<!ATTLIST n_source
+  
+  W_lex CDATA #REQUIRED>
+
+<!ELEMENT n_rat EMPTY>
+<!ATTLIST n_rat
+  
+  W_na CDATA #REQUIRED>
+
+<!ELEMENT verb (v_prc3,v_prc2,v_prc1,v_prc0,
+                    v_per,v_asp,v_vox,v_mod,v_gen,
+                    v_num,v_stt,v_cas,v_enc0,v_enc1,
+                    v_enc2,v_source,v_rat)>
+<!ATTLIST verb
+  >
+
+<!ELEMENT v_prc3 EMPTY>
+<!ATTLIST v_prc3
+  
+  W_0 CDATA #REQUIRED
+  W_-gt-a_ques CDATA #REQUIRED>
+
+<!ELEMENT v_prc2 EMPTY>
+<!ATTLIST v_prc2
+  
+  W_fa_conn CDATA #REQUIRED
+  W_fa_rc CDATA #REQUIRED
+  W_0 CDATA #REQUIRED
+  W_wa_part CDATA #REQUIRED
+  W_wa_sub CDATA #REQUIRED
+  W_fa_sub CDATA #REQUIRED
+  W_wa_conj CDATA #REQUIRED
+  W_fa_conj CDATA #REQUIRED>
+
+<!ELEMENT v_prc1 EMPTY>
+<!ATTLIST v_prc1
+  
+  W_la_emph CDATA #REQUIRED
+  W_li_jus CDATA #REQUIRED
+  W_0 CDATA #REQUIRED
+  W_la_rc CDATA #REQUIRED
+  W_sa_fut CDATA #REQUIRED
+  W_bi_part CDATA #REQUIRED>
+
+<!ELEMENT v_prc0 EMPTY>
+<!ATTLIST v_prc0
+  
+  W_mA_part CDATA #REQUIRED
+  W_0 CDATA #REQUIRED
+  W_mA_neg CDATA #REQUIRED
+  W_lA_neg CDATA #REQUIRED
+  W_mA_rel CDATA #REQUIRED
+  W_Aa_prondem CDATA #REQUIRED>
+
+<!ELEMENT v_per EMPTY>
+<!ATTLIST v_per
+  
+  W_3 CDATA #REQUIRED
+  W_2 CDATA #REQUIRED
+  W_1 CDATA #REQUIRED>
+
+<!ELEMENT v_asp EMPTY>
+<!ATTLIST v_asp
+  
+  W_p CDATA #REQUIRED
+  W_c CDATA #REQUIRED
+  W_i CDATA #REQUIRED>
+
+<!ELEMENT v_vox EMPTY>
+<!ATTLIST v_vox
+  
+  W_p CDATA #REQUIRED
+  W_a CDATA #REQUIRED>
+
+<!ELEMENT v_mod EMPTY>
+<!ATTLIST v_mod
+  
+  W_s CDATA #REQUIRED
+  W_i CDATA #REQUIRED
+  W_j CDATA #REQUIRED>
+
+<!ELEMENT v_gen EMPTY>
+<!ATTLIST v_gen
+  
+  W_m CDATA #REQUIRED
+  W_f CDATA #REQUIRED>
+
+<!ELEMENT v_num EMPTY>
+<!ATTLIST v_num
+  
+  W_s CDATA #REQUIRED
+  W_d CDATA #REQUIRED
+  W_p CDATA #REQUIRED>
+
+<!ELEMENT v_stt EMPTY>
+<!ATTLIST v_stt
+  
+  W_na CDATA #REQUIRED>
+
+<!ELEMENT v_cas EMPTY>
+<!ATTLIST v_cas
+  
+  W_na CDATA #REQUIRED>
+
+<!ELEMENT v_enc0 EMPTY>
+<!ATTLIST v_enc0
+  
+  W_0 CDATA #REQUIRED
+  W_3d_dobj CDATA #REQUIRED
+  W_3mp_dobj CDATA #REQUIRED
+  W_1s_dobj CDATA #REQUIRED
+  W_3fs_dobj CDATA #REQUIRED
+  W_2d_dobj CDATA #REQUIRED
+  W_2mp_dobj CDATA #REQUIRED
+  W_3ms_dobj CDATA #REQUIRED
+  W_2fp_dobj CDATA #REQUIRED
+  W_3fp_dobj CDATA #REQUIRED
+  W_2fs_dobj CDATA #REQUIRED
+  W_1p_dobj CDATA #REQUIRED
+  W_2ms_dobj CDATA #REQUIRED>
+
+<!ELEMENT v_enc1 EMPTY>
+<!ATTLIST v_enc1
+  
+  W_0 CDATA #REQUIRED>
+
+<!ELEMENT v_enc2 EMPTY>
+<!ATTLIST v_enc2
+  
+  W_0 CDATA #REQUIRED>
+
+<!ELEMENT v_source EMPTY>
+<!ATTLIST v_source
+  
+  W_lex CDATA #REQUIRED>
+
+<!ELEMENT v_rat EMPTY>
+<!ATTLIST v_rat
+  
+  W_na CDATA #REQUIRED>
+
+<!--
+An identifier is a sequence of letters and digits. The first character
+must be a letter or the underscore character _. Upper and lower 
+case letters are different, and identifiers may have any length.
+-->
+
+<!ENTITY % identifier "CDATA">
+
+<!-- M.N, where M and N are positive integers.  -->
+
+<!ENTITY % version_num "CDATA">

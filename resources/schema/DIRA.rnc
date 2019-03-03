@@ -1,0 +1,310 @@
+# DIRA XML Schema (Draft) v0.1 
+#
+
+default namespace = "urn:edu.columbia.ccls.dira:0.2"
+
+start |= user_configuration | input | output
+
+##
+# show_scores: Displays scores for each expansion in the output if value=yes
+# show_features: Displays features for each expansion in the output if value=yes
+# num_expansions: Specifies the number of expansions in the output
+##
+user_configuration =
+    element user_configuration {
+        output_lang_or_dialect+,
+        inflection+,
+        attribute num_expansions { xsd:integer },
+        attribute show_scores { "yes" | "no" },
+        attribute show_features { "yes" | "no" },
+        attribute show_gloss { "yes" | "no" },
+        ranking_preference?
+    }
+
+##
+# MSA: Modern Standard Arabic
+# EGY: Egyptian
+##    
+output_lang_or_dialect =
+    element output_lang_or_dialect {
+        attribute value { "MSA" | "EGY" | "all" }
+    }
+
+##
+# MSA: Modern Standard Arabic
+# EGY: Egyptian
+##      
+inflection = 
+    element inflection {
+        attribute value { "MSA" | "EGY" | "none" | "all" }
+    }    
+      
+input = element input { user_configuration?, lemma+ }
+
+##
+# id: A unique integer identifier that may be used to map the output expansions to the input lemmas
+# pos: Part-of-speech
+##  
+lemma =
+    element lemma {
+        attribute id { xsd:integer },
+        attribute languageOrDialect { "English" | "MSA" },
+        attribute value { xsd:string },
+        attribute pos { "verb" | "noun" | "all" } ?    # if not specified => "all"
+    }
+    
+output = element output { for_lemma* }
+
+for_lemma =
+    element for_lemma {
+        attribute id { xsd:integer },
+        attribute value { xsd:string },
+        attribute pos { xsd:string },
+        attribute gloss { xsd:string }?,
+        expansion*, 
+        warning?, 
+        error?
+    }
+
+attlist.exception &=
+    attribute code { xsd:integer },
+    attribute interpretation { xsd:string }
+    
+warning =
+    element warning {
+        attlist.exception
+    }
+    
+error =
+    element error {
+        attlist.exception
+    }    
+
+attlist.expansion &=
+    attribute languageOrDialect { "English" | "MSA" | "EGY" },
+    attribute inflection { "MSA" | "EGY" | "none"},
+    attribute features { xsd:string }?
+
+expansion =
+    element expansion {
+        attribute value { xsd:string },
+        attlist.expansion,
+        attribute score { xsd:integer }?
+    }
+   
+##
+# alpha: A weighting factor in the range [0,1] that may be used to bias the scoring towards 
+#         the feature probability values specified in the user configuration or away from it.
+#         If alpha = 0, the scoring is based entirely on the feature probability values specified
+#         in the user configuration.
+#         If alpha = 1, the scoring is based entirely on the word probability values specified in
+#         the AWFL lists. The AWFLs (Analyzed Word Frequency Lists) contain a cache of word forms
+#         taken from corpuses. Each word form is associated with a set of features and a probability value.
+#		 The probability value indicates the probability of the word form occuring in the corpus with the
+#		 associated set of features. This probability value is used to compute the score of the expansion in the
+#         output.
+##   
+ranking_preference =
+    element ranking_preference {
+        attribute alpha { xsd:double },
+        features?
+    }
+    
+features = element features { noun?, verb? }
+
+noun =
+    element noun {
+        element n_prc3 {
+            attribute W_0 { xsd:double },
+            # >a_ques 
+            attribute W_-gt-a_ques { xsd:double }
+        },
+        element n_prc2 {
+            attribute W_fa_conn { xsd:double },
+            attribute W_fa_rc { xsd:double },
+            attribute W_na { xsd:double },
+            attribute W_0 { xsd:double },
+            attribute W_wa_part { xsd:double },
+            attribute W_wa_sub { xsd:double },
+            attribute W_fa_sub { xsd:double },
+            attribute W_wa_conj { xsd:double },
+            attribute W_fa_conj { xsd:double }
+        },
+        element n_prc1 {
+            attribute W_ka_prep { xsd:double },
+            attribute W_0 { xsd:double },
+            attribute W_li_prep { xsd:double },
+            attribute W_bi_prep { xsd:double },
+            attribute W_la_prep { xsd:double }
+        },
+        element n_prc0 {
+            attribute W_0 { xsd:double },
+            attribute W_Al_det { xsd:double },
+            attribute W_Aa_prondem { xsd:double }
+        },
+        element n_per {
+            attribute W_na { xsd:double }
+        },
+        element n_asp {
+            attribute W_na { xsd:double }
+        },
+        element n_vox {
+            attribute W_na { xsd:double }
+        },
+        element n_mod {
+            attribute W_na { xsd:double }
+        },
+        element n_gen {
+            attribute W_m { xsd:double },
+            attribute W_f { xsd:double }
+        },
+        element n_num {
+            attribute W_s { xsd:double },
+            attribute W_d { xsd:double },
+            attribute W_p { xsd:double }
+        },
+        element n_stt {
+            attribute W_i { xsd:double },
+            attribute W_c { xsd:double },
+            attribute W_d { xsd:double },
+            attribute W_u { xsd:double }
+        },
+        element n_cas {
+            attribute W_u { xsd:double },
+            attribute W_n { xsd:double },
+            attribute W_a { xsd:double },
+            attribute W_g { xsd:double }
+        },
+        element n_enc0 {
+            attribute W_3mp_poss { xsd:double },
+            attribute W_2mp_poss { xsd:double },
+            attribute W_3ms_poss { xsd:double },
+            attribute W_0 { xsd:double },
+            attribute W_2fp_poss { xsd:double },
+            attribute W_1s_poss { xsd:double },
+            attribute W_1p_poss { xsd:double },
+            attribute W_2fs_poss { xsd:double },
+            attribute W_3d_poss { xsd:double },
+            attribute W_3fp_poss { xsd:double },
+            attribute W_2d_poss { xsd:double },
+            attribute W_3fs_poss { xsd:double },
+            attribute W_2ms_poss { xsd:double }
+        },
+        element n_enc1 {
+            attribute W_0 { xsd:double }
+        },
+        element n_enc2 {
+            attribute W_0 { xsd:double }
+        },
+        element n_source {
+            attribute W_lex { xsd:double }
+        },
+        element n_rat {
+            attribute W_na { xsd:double }
+        }
+    }
+
+verb =
+    element verb {
+        element v_prc3 {
+            attribute W_0 { xsd:double },
+            # >a_ques 
+            attribute W_-gt-a_ques { xsd:double }
+        },
+        element v_prc2 {
+            attribute W_fa_conn { xsd:double },
+            attribute W_fa_rc { xsd:double },
+            attribute W_0 { xsd:double },
+            attribute W_wa_part { xsd:double },
+            attribute W_wa_sub { xsd:double },
+            attribute W_fa_sub { xsd:double },
+            attribute W_wa_conj { xsd:double },
+            attribute W_fa_conj { xsd:double }
+        },
+        element v_prc1 {
+            attribute W_la_emph { xsd:double },
+            attribute W_li_jus { xsd:double },
+            attribute W_0 { xsd:double },
+            attribute W_la_rc { xsd:double },
+            attribute W_sa_fut { xsd:double },
+            attribute W_bi_part { xsd:double }
+        },
+        element v_prc0 {
+            attribute W_mA_part { xsd:double },
+            attribute W_0 { xsd:double },
+            attribute W_mA_neg { xsd:double },
+            attribute W_lA_neg { xsd:double },
+            attribute W_mA_rel { xsd:double },
+            attribute W_Aa_prondem { xsd:double }
+        },
+        element v_per {
+            attribute W_3 { xsd:double },
+            attribute W_2 { xsd:double },
+            attribute W_1 { xsd:double }
+        },
+        element v_asp {
+            attribute W_p { xsd:double },
+            attribute W_c { xsd:double },
+            attribute W_i { xsd:double }
+        },
+        element v_vox {
+            attribute W_p { xsd:double },
+            attribute W_a { xsd:double }
+        },
+        element v_mod {
+            attribute W_s { xsd:double },
+            attribute W_i { xsd:double },
+            attribute W_j { xsd:double }
+        },
+        element v_gen {
+            attribute W_m { xsd:double },
+            attribute W_f { xsd:double }
+        },
+        element v_num {
+            attribute W_s { xsd:double },
+            attribute W_d { xsd:double },
+            attribute W_p { xsd:double }
+        },
+        element v_stt {
+            attribute W_na { xsd:double }
+        },
+        element v_cas {
+            attribute W_na { xsd:double }
+        },
+        element v_enc0 {
+            attribute W_0 { xsd:double },
+            attribute W_3d_dobj { xsd:double },
+            attribute W_3mp_dobj { xsd:double },
+            attribute W_1s_dobj { xsd:double },
+            attribute W_3fs_dobj { xsd:double },
+            attribute W_2d_dobj { xsd:double },
+            attribute W_2mp_dobj { xsd:double },
+            attribute W_3ms_dobj { xsd:double },
+            attribute W_2fp_dobj { xsd:double },
+            attribute W_3fp_dobj { xsd:double },
+            attribute W_2fs_dobj { xsd:double },
+            attribute W_1p_dobj { xsd:double },
+            attribute W_2ms_dobj { xsd:double }
+        },
+        element v_enc1 {
+            attribute W_0 { xsd:double }
+        },
+        element v_enc2 {
+            attribute W_0 { xsd:double }
+        },
+        element v_source {
+            attribute W_lex { xsd:double }
+        },
+        element v_rat {
+            attribute W_na { xsd:double }
+        }
+    }
+    
+    
+    # An identifier is a sequence of letters and digits. The first character
+    # must be a letter or the underscore character _. Upper and lower 
+    # case letters are different, and identifiers may have any length.
+    identifier |= xsd:string { pattern="[a-zA-Z_][a-zA-Z_0-9]*" }
+    
+    # M.N, where M and N are positive integers. 
+    version_num |= xsd:string { pattern="(0|[1-9]([0-9]*))\.(0|[1-9]([0-9]*))" }

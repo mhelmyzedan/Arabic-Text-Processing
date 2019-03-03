@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<almor_output xmlns="urn:edu.columbia.ccls.common.almor.configuration:0.1" id="DOC_ID1">
+    <output_seg id="A_1">
+        <analysis_output dialect="MSA" backoff="NONE">
+            <word id="1" word="AsbAnyA">
+                <analysis>
+                    <morph_feature_set diac="&lt;isobAniyA" lemma="&lt;isobAniyA_1" bw="&lt;isobAniyA/NOUN_PROP" gloss="Spain" pos="noun_prop" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="i" cas="u" enc0="0" source="spvar" stem="&lt;isobAniyA"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="&gt;asobAniyA" lemma="&lt;isobAniyA_1" bw="&gt;asobAniyA/NOUN_PROP" gloss="Spain" pos="noun_prop" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="i" cas="u" enc0="0" source="spvar" stem="&gt;asobAniyA"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="&lt;isobAniy~AF" lemma="&lt;isobAniy~_1" bw="&lt;isobAniy~/NOUN+AF/CASE_INDEF_ACC" gloss="Spanish;Spaniard" pos="noun" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="i" cas="a" enc0="0" source="spvar" stem="&lt;isobAniy~" sufgloss="[acc.indef.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="&lt;isobAniy~A" lemma="&lt;isobAniy~_1" bw="&lt;isobAniy~/NOUN+A/NSUFF_MASC_DU_NOM_POSS" gloss="Spanish;Spaniard" pos="noun" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="d" stt="c" cas="n" enc0="0" source="spvar" stem="&lt;isobAniy~" sufgloss="two"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="&lt;isobAniy~AF" lemma="&lt;isobAniy~_2" bw="&lt;isobAniy~/ADJ+AF/CASE_INDEF_ACC" gloss="Spanish;Spaniard" pos="adj" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="i" cas="a" enc0="0" source="spvar" stem="&lt;isobAniy~" sufgloss="[acc.indef.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="&lt;isobAniy~A" lemma="&lt;isobAniy~_2" bw="&lt;isobAniy~/ADJ+A/NSUFF_MASC_DU_NOM_POSS" gloss="Spanish;Spaniard" pos="adj" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="d" stt="c" cas="n" enc0="0" source="spvar" stem="&lt;isobAniy~" sufgloss="two"/>
+                </analysis>
+            </word>
+            <word id="2" word="tnfy">
+                <analysis>
+                    <morph_feature_set diac="tunofaY" lemma="nafA-u_1" bw="tu/IV3FS+nofaY/IV_PASS+(null)/IVSUFF_MOOD:I" gloss="be_denied;be_refuted;be_rejected" pos="verb" prc3="0" prc2="0" prc1="0" prc0="0" per="3" asp="i" vox="p" mod="i" gen="f" num="s" stt="na" cas="na" enc0="0" source="spvar" stem="nofaY" pregloss="it/they/she" sufgloss="[ind.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tunofaY" lemma="nafA-u_1" bw="tu/IV3FS+nofaY/IV_PASS+(null)/IVSUFF_MOOD:S" gloss="be_denied;be_refuted;be_rejected" pos="verb" prc3="0" prc2="0" prc1="0" prc0="0" per="3" asp="i" vox="p" mod="s" gen="f" num="s" stt="na" cas="na" enc0="0" source="spvar" stem="nofaY" pregloss="it/they/she" sufgloss="[sub.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tunofaY" lemma="nafA-u_1" bw="tu/IV2MS+nofaY/IV_PASS+(null)/IVSUFF_MOOD:I" gloss="be_denied;be_refuted;be_rejected" pos="verb" prc3="0" prc2="0" prc1="0" prc0="0" per="2" asp="i" vox="p" mod="i" gen="m" num="s" stt="na" cas="na" enc0="0" source="spvar" stem="nofaY" pregloss="you_[masc.sg.]" sufgloss="[ind.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tunofaY" lemma="nafA-u_1" bw="tu/IV2MS+nofaY/IV_PASS+(null)/IVSUFF_MOOD:S" gloss="be_denied;be_refuted;be_rejected" pos="verb" prc3="0" prc2="0" prc1="0" prc0="0" per="2" asp="i" vox="p" mod="s" gen="m" num="s" stt="na" cas="na" enc0="0" source="spvar" stem="nofaY" pregloss="you_[masc.sg.]" sufgloss="[sub.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tanafaY" lemma="nafaY_1" bw="ta/PREP+nafaY/PV+(null)/PVSUFF_SUBJ:3MS" gloss="deny;disavow;reject" pos="verb" prc3="0" prc2="0" prc1="ta_prep" prc0="0" per="3" asp="p" vox="a" mod="i" gen="m" num="s" stt="na" cas="na" enc0="0" source="spvar" stem="nafaY" pregloss="by" sufgloss="he/it_[verb]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tanofiy" lemma="nafaY_1" bw="ta/IV3FS+nofiy/IV+(null)/IVSUFF_MOOD:I" gloss="deny;disavow;reject" pos="verb" prc3="0" prc2="0" prc1="0" prc0="0" per="3" asp="i" vox="a" mod="i" gen="f" num="s" stt="na" cas="na" enc0="0" source="lex" stem="nofiy" pregloss="it/they/she" sufgloss="[ind.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tanofiya" lemma="nafaY_1" bw="ta/IV3FS+nofiy/IV+a/IVSUFF_MOOD:S" gloss="deny;disavow;reject" pos="verb" prc3="0" prc2="0" prc1="0" prc0="0" per="3" asp="i" vox="a" mod="s" gen="f" num="s" stt="na" cas="na" enc0="0" source="lex" stem="nofiy" pregloss="it/they/she" sufgloss="[sub.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tanofiy" lemma="nafaY_1" bw="ta/IV2MS+nofiy/IV+(null)/IVSUFF_MOOD:I" gloss="deny;disavow;reject" pos="verb" prc3="0" prc2="0" prc1="0" prc0="0" per="2" asp="i" vox="a" mod="i" gen="m" num="s" stt="na" cas="na" enc0="0" source="lex" stem="nofiy" pregloss="you_[masc.sg.]" sufgloss="[ind.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tanofiya" lemma="nafaY_1" bw="ta/IV2MS+nofiy/IV+a/IVSUFF_MOOD:S" gloss="deny;disavow;reject" pos="verb" prc3="0" prc2="0" prc1="0" prc0="0" per="2" asp="i" vox="a" mod="s" gen="m" num="s" stt="na" cas="na" enc0="0" source="lex" stem="nofiy" pregloss="you_[masc.sg.]" sufgloss="[sub.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tunofaY" lemma="nafaY_1" bw="tu/IV3FS+nofaY/IV_PASS+(null)/IVSUFF_MOOD:I" gloss="be_denied;be_disavowed;be_rejected" pos="verb" prc3="0" prc2="0" prc1="0" prc0="0" per="3" asp="i" vox="p" mod="i" gen="f" num="s" stt="na" cas="na" enc0="0" source="spvar" stem="nofaY" pregloss="it/they/she" sufgloss="[ind.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tunofaY" lemma="nafaY_1" bw="tu/IV3FS+nofaY/IV_PASS+(null)/IVSUFF_MOOD:S" gloss="be_denied;be_disavowed;be_rejected" pos="verb" prc3="0" prc2="0" prc1="0" prc0="0" per="3" asp="i" vox="p" mod="s" gen="f" num="s" stt="na" cas="na" enc0="0" source="spvar" stem="nofaY" pregloss="it/they/she" sufgloss="[sub.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tunofaY" lemma="nafaY_1" bw="tu/IV2MS+nofaY/IV_PASS+(null)/IVSUFF_MOOD:I" gloss="be_denied;be_disavowed;be_rejected" pos="verb" prc3="0" prc2="0" prc1="0" prc0="0" per="2" asp="i" vox="p" mod="i" gen="m" num="s" stt="na" cas="na" enc0="0" source="spvar" stem="nofaY" pregloss="you_[masc.sg.]" sufgloss="[ind.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tunofaY" lemma="nafaY_1" bw="tu/IV2MS+nofaY/IV_PASS+(null)/IVSUFF_MOOD:S" gloss="be_denied;be_disavowed;be_rejected" pos="verb" prc3="0" prc2="0" prc1="0" prc0="0" per="2" asp="i" vox="p" mod="s" gen="m" num="s" stt="na" cas="na" enc0="0" source="spvar" stem="nofaY" pregloss="you_[masc.sg.]" sufgloss="[sub.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tanafoy" lemma="nafoy_1" bw="ta/PREP+nafoy/NOUN" gloss="denial;disavowal" pos="noun" prc3="0" prc2="0" prc1="ta_prep" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="i" cas="u" enc0="0" source="lex" stem="nafoy" pregloss="by"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tanafoyu" lemma="nafoy_1" bw="ta/PREP+nafoy/NOUN+u/CASE_DEF_NOM" gloss="denial;disavowal" pos="noun" prc3="0" prc2="0" prc1="ta_prep" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="c" cas="n" enc0="0" source="lex" stem="nafoy" pregloss="by" sufgloss="[def.nom.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tanafoya" lemma="nafoy_1" bw="ta/PREP+nafoy/NOUN+a/CASE_DEF_ACC" gloss="denial;disavowal" pos="noun" prc3="0" prc2="0" prc1="ta_prep" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="c" cas="a" enc0="0" source="lex" stem="nafoy" pregloss="by" sufgloss="[def.acc.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tanafoyi" lemma="nafoy_1" bw="ta/PREP+nafoy/NOUN+i/CASE_DEF_GEN" gloss="denial;disavowal" pos="noun" prc3="0" prc2="0" prc1="ta_prep" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="c" cas="g" enc0="0" source="lex" stem="nafoy" pregloss="by" sufgloss="[def.gen.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tanafoyN" lemma="nafoy_1" bw="ta/PREP+nafoy/NOUN+N/CASE_INDEF_NOM" gloss="denial;disavowal" pos="noun" prc3="0" prc2="0" prc1="ta_prep" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="i" cas="n" enc0="0" source="lex" stem="nafoy" pregloss="by" sufgloss="[indef.nom.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tanafoyK" lemma="nafoy_1" bw="ta/PREP+nafoy/NOUN+K/CASE_INDEF_GEN" gloss="denial;disavowal" pos="noun" prc3="0" prc2="0" prc1="ta_prep" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="i" cas="g" enc0="0" source="lex" stem="nafoy" pregloss="by" sufgloss="[indef.gen.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tanafiy~" lemma="nafiy~_1" bw="ta/PREP+nafiy~/ADJ" gloss="denied;rejected" pos="adj" prc3="0" prc2="0" prc1="ta_prep" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="i" cas="u" enc0="0" source="lex" stem="nafiy~" pregloss="by"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tanafiy~u" lemma="nafiy~_1" bw="ta/PREP+nafiy~/ADJ+u/CASE_DEF_NOM" gloss="denied;rejected" pos="adj" prc3="0" prc2="0" prc1="ta_prep" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="c" cas="n" enc0="0" source="lex" stem="nafiy~" pregloss="by" sufgloss="[def.nom.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tanafiy~a" lemma="nafiy~_1" bw="ta/PREP+nafiy~/ADJ+a/CASE_DEF_ACC" gloss="denied;rejected" pos="adj" prc3="0" prc2="0" prc1="ta_prep" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="c" cas="a" enc0="0" source="lex" stem="nafiy~" pregloss="by" sufgloss="[def.acc.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tanafiy~i" lemma="nafiy~_1" bw="ta/PREP+nafiy~/ADJ+i/CASE_DEF_GEN" gloss="denied;rejected" pos="adj" prc3="0" prc2="0" prc1="ta_prep" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="c" cas="g" enc0="0" source="lex" stem="nafiy~" pregloss="by" sufgloss="[def.gen.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tanafiy~N" lemma="nafiy~_1" bw="ta/PREP+nafiy~/ADJ+N/CASE_INDEF_NOM" gloss="denied;rejected" pos="adj" prc3="0" prc2="0" prc1="ta_prep" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="i" cas="n" enc0="0" source="lex" stem="nafiy~" pregloss="by" sufgloss="[indef.nom.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tanafiy~K" lemma="nafiy~_1" bw="ta/PREP+nafiy~/ADJ+K/CASE_INDEF_GEN" gloss="denied;rejected" pos="adj" prc3="0" prc2="0" prc1="ta_prep" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="i" cas="g" enc0="0" source="lex" stem="nafiy~" pregloss="by" sufgloss="[indef.gen.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tanif~iy" lemma="naf~-i_1" bw="ta/IV2FS+nif~/IV+iy/IVSUFF_SUBJ:2FS_MOOD:SJ" gloss="blow_the_nose;snuff" pos="verb" prc3="0" prc2="0" prc1="0" prc0="0" per="2" asp="i" vox="a" mod="u" gen="f" num="s" stt="na" cas="na" enc0="0" source="lex" stem="nif~" pregloss="you_[fem.sg.]" sufgloss="[fem.sg.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tanofiy" lemma="nafA-u_1" bw="ta/IV2FS+nof/IV+iy/IVSUFF_SUBJ:2FS_MOOD:SJ" gloss="deny;refute;reject" pos="verb" prc3="0" prc2="0" prc1="0" prc0="0" per="2" asp="i" vox="a" mod="u" gen="f" num="s" stt="na" cas="na" enc0="0" source="lex" stem="nof" pregloss="you_[fem.sg.]" sufgloss="[fem.sg.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tunofayo" lemma="nafA-u_1" bw="tu/IV2FS+nof/IV_PASS+ayo/IVSUFF_SUBJ:2FS_MOOD:SJ" gloss="be_denied;be_refuted;be_rejected" pos="verb" prc3="0" prc2="0" prc1="0" prc0="0" per="2" asp="i" vox="p" mod="u" gen="f" num="s" stt="na" cas="na" enc0="0" source="lex" stem="nof" pregloss="you_[fem.sg.]" sufgloss="[fem.sg.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tanofiy" lemma="nafaY_1" bw="ta/IV2FS+nof/IV+iy/IVSUFF_SUBJ:2FS_MOOD:SJ" gloss="deny;disavow;reject" pos="verb" prc3="0" prc2="0" prc1="0" prc0="0" per="2" asp="i" vox="a" mod="u" gen="f" num="s" stt="na" cas="na" enc0="0" source="lex" stem="nof" pregloss="you_[fem.sg.]" sufgloss="[fem.sg.]"/>
+                </analysis>
+            </word>
+            <word id="3" word="tjmyd">
+                <analysis>
+                    <morph_feature_set diac="tajomiyd" lemma="tajomiyd_1" bw="tajomiyd/NOUN" gloss="freezing" pos="noun" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="i" cas="u" enc0="0" source="lex" stem="tajomiyd"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tajomiydu" lemma="tajomiyd_1" bw="tajomiyd/NOUN+u/CASE_DEF_NOM" gloss="freezing" pos="noun" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="c" cas="n" enc0="0" source="lex" stem="tajomiyd" sufgloss="[def.nom.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tajomiyda" lemma="tajomiyd_1" bw="tajomiyd/NOUN+a/CASE_DEF_ACC" gloss="freezing" pos="noun" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="c" cas="a" enc0="0" source="lex" stem="tajomiyd" sufgloss="[def.acc.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tajomiydi" lemma="tajomiyd_1" bw="tajomiyd/NOUN+i/CASE_DEF_GEN" gloss="freezing" pos="noun" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="c" cas="g" enc0="0" source="lex" stem="tajomiyd" sufgloss="[def.gen.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tajomiydN" lemma="tajomiyd_1" bw="tajomiyd/NOUN+N/CASE_INDEF_NOM" gloss="freezing" pos="noun" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="i" cas="n" enc0="0" source="lex" stem="tajomiyd" sufgloss="[indef.nom.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="tajomiydK" lemma="tajomiyd_1" bw="tajomiyd/NOUN+K/CASE_INDEF_GEN" gloss="freezing" pos="noun" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="i" cas="g" enc0="0" source="lex" stem="tajomiyd" sufgloss="[indef.gen.]"/>
+                </analysis>
+            </word>
+            <word id="4" word="AlmsAEdp">
+                <analysis>
+                    <morph_feature_set diac="AlmusAEadap" lemma="musAEadap_1" bw="Al/DET+musAEad/NOUN+ap/NSUFF_FEM_SG" gloss="assistance;aid;support;help" pos="noun" prc3="0" prc2="0" prc1="0" prc0="Al_det" per="na" asp="na" vox="na" mod="na" gen="f" num="s" stt="d" cas="u" enc0="0" source="lex" stem="musAEad" pregloss="the" sufgloss="[fem.sg.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="AlmusAEadapu" lemma="musAEadap_1" bw="Al/DET+musAEad/NOUN+ap/NSUFF_FEM_SG+u/CASE_DEF_NOM" gloss="assistance;aid;support;help" pos="noun" prc3="0" prc2="0" prc1="0" prc0="Al_det" per="na" asp="na" vox="na" mod="na" gen="f" num="s" stt="d" cas="n" enc0="0" source="lex" stem="musAEad" pregloss="the" sufgloss="[fem.sg.]_+_[def.nom.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="AlmusAEadapa" lemma="musAEadap_1" bw="Al/DET+musAEad/NOUN+ap/NSUFF_FEM_SG+a/CASE_DEF_ACC" gloss="assistance;aid;support;help" pos="noun" prc3="0" prc2="0" prc1="0" prc0="Al_det" per="na" asp="na" vox="na" mod="na" gen="f" num="s" stt="d" cas="a" enc0="0" source="lex" stem="musAEad" pregloss="the" sufgloss="[fem.sg.]_+_[def.acc.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="AlmusAEadapi" lemma="musAEadap_1" bw="Al/DET+musAEad/NOUN+ap/NSUFF_FEM_SG+i/CASE_DEF_GEN" gloss="assistance;aid;support;help" pos="noun" prc3="0" prc2="0" prc1="0" prc0="Al_det" per="na" asp="na" vox="na" mod="na" gen="f" num="s" stt="d" cas="g" enc0="0" source="lex" stem="musAEad" pregloss="the" sufgloss="[fem.sg.]_+_[def.gen.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="AlmusAEidap" lemma="musAEid_1" bw="Al/DET+musAEid/NOUN+ap/NSUFF_FEM_SG" gloss="assistant;supporter" pos="noun" prc3="0" prc2="0" prc1="0" prc0="Al_det" per="na" asp="na" vox="na" mod="na" gen="f" num="s" stt="d" cas="u" enc0="0" source="lex" stem="musAEid" pregloss="the" sufgloss="[fem.sg.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="AlmusAEidapu" lemma="musAEid_1" bw="Al/DET+musAEid/NOUN+ap/NSUFF_FEM_SG+u/CASE_DEF_NOM" gloss="assistant;supporter" pos="noun" prc3="0" prc2="0" prc1="0" prc0="Al_det" per="na" asp="na" vox="na" mod="na" gen="f" num="s" stt="d" cas="n" enc0="0" source="lex" stem="musAEid" pregloss="the" sufgloss="[fem.sg.]_+_[def.nom.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="AlmusAEidapa" lemma="musAEid_1" bw="Al/DET+musAEid/NOUN+ap/NSUFF_FEM_SG+a/CASE_DEF_ACC" gloss="assistant;supporter" pos="noun" prc3="0" prc2="0" prc1="0" prc0="Al_det" per="na" asp="na" vox="na" mod="na" gen="f" num="s" stt="d" cas="a" enc0="0" source="lex" stem="musAEid" pregloss="the" sufgloss="[fem.sg.]_+_[def.acc.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="AlmusAEidapi" lemma="musAEid_1" bw="Al/DET+musAEid/NOUN+ap/NSUFF_FEM_SG+i/CASE_DEF_GEN" gloss="assistant;supporter" pos="noun" prc3="0" prc2="0" prc1="0" prc0="Al_det" per="na" asp="na" vox="na" mod="na" gen="f" num="s" stt="d" cas="g" enc0="0" source="lex" stem="musAEid" pregloss="the" sufgloss="[fem.sg.]_+_[def.gen.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="AlmusAEidap" lemma="musAEid_1" bw="Al/DET+musAEid/ADJ+ap/NSUFF_FEM_SG" gloss="helping;assisting;supporting" pos="adj" prc3="0" prc2="0" prc1="0" prc0="Al_det" per="na" asp="na" vox="na" mod="na" gen="f" num="s" stt="d" cas="u" enc0="0" source="lex" stem="musAEid" pregloss="the" sufgloss="[fem.sg.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="AlmusAEidapu" lemma="musAEid_1" bw="Al/DET+musAEid/ADJ+ap/NSUFF_FEM_SG+u/CASE_DEF_NOM" gloss="helping;assisting;supporting" pos="adj" prc3="0" prc2="0" prc1="0" prc0="Al_det" per="na" asp="na" vox="na" mod="na" gen="f" num="s" stt="d" cas="n" enc0="0" source="lex" stem="musAEid" pregloss="the" sufgloss="[fem.sg.]_+_[def.nom.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="AlmusAEidapa" lemma="musAEid_1" bw="Al/DET+musAEid/ADJ+ap/NSUFF_FEM_SG+a/CASE_DEF_ACC" gloss="helping;assisting;supporting" pos="adj" prc3="0" prc2="0" prc1="0" prc0="Al_det" per="na" asp="na" vox="na" mod="na" gen="f" num="s" stt="d" cas="a" enc0="0" source="lex" stem="musAEid" pregloss="the" sufgloss="[fem.sg.]_+_[def.acc.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="AlmusAEidapi" lemma="musAEid_1" bw="Al/DET+musAEid/ADJ+ap/NSUFF_FEM_SG+i/CASE_DEF_GEN" gloss="helping;assisting;supporting" pos="adj" prc3="0" prc2="0" prc1="0" prc0="Al_det" per="na" asp="na" vox="na" mod="na" gen="f" num="s" stt="d" cas="g" enc0="0" source="lex" stem="musAEid" pregloss="the" sufgloss="[fem.sg.]_+_[def.gen.]"/>
+                </analysis>
+            </word>
+            <word id="5" word="AlmmnwHp">
+                <analysis>
+                    <morph_feature_set diac="AlmamonuwHap" lemma="mamonuwH_1" bw="Al/DET+mamonuwH/ADJ+ap/NSUFF_FEM_SG" gloss="granted;awarded;bestowed" pos="adj" prc3="0" prc2="0" prc1="0" prc0="Al_det" per="na" asp="na" vox="na" mod="na" gen="f" num="s" stt="d" cas="u" enc0="0" source="lex" stem="mamonuwH" pregloss="the" sufgloss="[fem.sg.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="AlmamonuwHapu" lemma="mamonuwH_1" bw="Al/DET+mamonuwH/ADJ+ap/NSUFF_FEM_SG+u/CASE_DEF_NOM" gloss="granted;awarded;bestowed" pos="adj" prc3="0" prc2="0" prc1="0" prc0="Al_det" per="na" asp="na" vox="na" mod="na" gen="f" num="s" stt="d" cas="n" enc0="0" source="lex" stem="mamonuwH" pregloss="the" sufgloss="[fem.sg.]_+_[def.nom.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="AlmamonuwHapa" lemma="mamonuwH_1" bw="Al/DET+mamonuwH/ADJ+ap/NSUFF_FEM_SG+a/CASE_DEF_ACC" gloss="granted;awarded;bestowed" pos="adj" prc3="0" prc2="0" prc1="0" prc0="Al_det" per="na" asp="na" vox="na" mod="na" gen="f" num="s" stt="d" cas="a" enc0="0" source="lex" stem="mamonuwH" pregloss="the" sufgloss="[fem.sg.]_+_[def.acc.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="AlmamonuwHapi" lemma="mamonuwH_1" bw="Al/DET+mamonuwH/ADJ+ap/NSUFF_FEM_SG+i/CASE_DEF_GEN" gloss="granted;awarded;bestowed" pos="adj" prc3="0" prc2="0" prc1="0" prc0="Al_det" per="na" asp="na" vox="na" mod="na" gen="f" num="s" stt="d" cas="g" enc0="0" source="lex" stem="mamonuwH" pregloss="the" sufgloss="[fem.sg.]_+_[def.gen.]"/>
+                </analysis>
+            </word>
+            <word id="6" word="llmgrb">
+                <analysis>
+                    <morph_feature_set diac="lilmagorib" lemma="magorib_1" bw="li/PREP+Al/DET+magorib/NOUN_PROP" gloss="Morocco" pos="noun_prop" prc3="0" prc2="0" prc1="li_prep" prc0="Al_det" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="d" cas="u" enc0="0" source="lex" stem="magorib" pregloss="to/for_+_the"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="lilmagoribi" lemma="magorib_1" bw="li/PREP+Al/DET+magorib/NOUN_PROP+i/CASE_DEF_GEN" gloss="Morocco" pos="noun_prop" prc3="0" prc2="0" prc1="li_prep" prc0="Al_det" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="d" cas="g" enc0="0" source="lex" stem="magorib" pregloss="to/for_+_the" sufgloss="[def.gen.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="lilmagorib" lemma="magorib_1" bw="li/PREP+Al/DET+magorib/NOUN_PROP" gloss="Maghreb;Maghrib_(northwest_Africa)" pos="noun_prop" prc3="0" prc2="0" prc1="li_prep" prc0="Al_det" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="d" cas="u" enc0="0" source="lex" stem="magorib" pregloss="to/for_+_the"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="lilmagoribi" lemma="magorib_1" bw="li/PREP+Al/DET+magorib/NOUN_PROP+i/CASE_DEF_GEN" gloss="Maghreb;Maghrib_(northwest_Africa)" pos="noun_prop" prc3="0" prc2="0" prc1="li_prep" prc0="Al_det" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="d" cas="g" enc0="0" source="lex" stem="magorib" pregloss="to/for_+_the" sufgloss="[def.gen.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="lilmagorib" lemma="magorib_2" bw="li/PREP+Al/DET+magorib/NOUN" gloss="sunset" pos="noun" prc3="0" prc2="0" prc1="li_prep" prc0="Al_det" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="d" cas="u" enc0="0" source="lex" stem="magorib" pregloss="to/for_+_the"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="lilmagoribi" lemma="magorib_2" bw="li/PREP+Al/DET+magorib/NOUN+i/CASE_DEF_GEN" gloss="sunset" pos="noun" prc3="0" prc2="0" prc1="li_prep" prc0="Al_det" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="d" cas="g" enc0="0" source="lex" stem="magorib" pregloss="to/for_+_the" sufgloss="[def.gen.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="lilmugar~ab" lemma="mugar~ab_1" bw="li/PREP+Al/DET+mugar~ab/ADJ" gloss="exiled" pos="adj" prc3="0" prc2="0" prc1="li_prep" prc0="Al_det" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="d" cas="u" enc0="0" source="lex" stem="mugar~ab" pregloss="to/for_+_the"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="lilmugar~abi" lemma="mugar~ab_1" bw="li/PREP+Al/DET+mugar~ab/ADJ+i/CASE_DEF_GEN" gloss="exiled" pos="adj" prc3="0" prc2="0" prc1="li_prep" prc0="Al_det" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="d" cas="g" enc0="0" source="lex" stem="mugar~ab" pregloss="to/for_+_the" sufgloss="[def.gen.]"/>
+                </analysis>
+            </word>
+        </analysis_output>
+    </output_seg>
+    <output_seg id="A_2">
+        <analysis_output dialect="MSA" backoff="ADD_PROP">
+            <word id="1" word="ElY">
+                <analysis>
+                    <morph_feature_set diac="Eal~aY" lemma="Eal~aY_1" bw="Eal~aY/PV+(null)/PVSUFF_SUBJ:3MS" gloss="elevate;raise" pos="verb" prc3="0" prc2="0" prc1="0" prc0="0" per="3" asp="p" vox="a" mod="i" gen="m" num="s" stt="na" cas="na" enc0="0" source="lex" stem="Eal~aY" sufgloss="he/it_[verb]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="EalaY" lemma="EalaY_1" bw="EalaY/PREP" gloss="on;above" pos="prep" prc3="0" prc2="0" prc1="0" prc0="na" per="na" asp="na" vox="na" mod="na" gen="na" num="na" stt="na" cas="na" enc0="0" source="lex" stem="EalaY"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="Ealay~a" lemma="EalaY_1" bw="EalaY/PREP+ya/PRON_1S" gloss="on;above" pos="prep" prc3="0" prc2="0" prc1="0" prc0="na" per="na" asp="na" vox="na" mod="na" gen="na" num="na" stt="na" cas="na" enc0="1s_pron" source="spvar" stem="Ealay" sufgloss="me"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="EalaY" lemma="EalaY_2" bw="EalaY/NOUN" gloss="on;above" pos="noun" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="i" cas="u" enc0="0" source="lex" stem="EalaY"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="EalaYu" lemma="EalaY_2" bw="EalaY/NOUN+u/CASE_DEF_NOM" gloss="on;above" pos="noun" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="c" cas="n" enc0="0" source="lex" stem="EalaY" sufgloss="[def.nom.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="EalaYa" lemma="EalaY_2" bw="EalaY/NOUN+a/CASE_DEF_ACC" gloss="on;above" pos="noun" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="c" cas="a" enc0="0" source="lex" stem="EalaY" sufgloss="[def.acc.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="EalaYi" lemma="EalaY_2" bw="EalaY/NOUN+i/CASE_DEF_GEN" gloss="on;above" pos="noun" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="c" cas="g" enc0="0" source="lex" stem="EalaY" sufgloss="[def.gen.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="EalaYN" lemma="EalaY_2" bw="EalaY/NOUN+N/CASE_INDEF_NOM" gloss="on;above" pos="noun" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="i" cas="n" enc0="0" source="lex" stem="EalaY" sufgloss="[indef.nom.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="EalaYK" lemma="EalaY_2" bw="EalaY/NOUN+K/CASE_INDEF_GEN" gloss="on;above" pos="noun" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="i" cas="g" enc0="0" source="lex" stem="EalaY" sufgloss="[indef.gen.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="Ealiy~" lemma="Ealiy~_1" bw="Ealiy~/ADJ" gloss="supreme;high" pos="adj" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="i" cas="u" enc0="0" source="spvar" stem="Ealiy~"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="Ealiy~u" lemma="Ealiy~_1" bw="Ealiy~/ADJ+u/CASE_DEF_NOM" gloss="supreme;high" pos="adj" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="c" cas="n" enc0="0" source="spvar" stem="Ealiy~" sufgloss="[def.nom.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="Ealiy~a" lemma="Ealiy~_1" bw="Ealiy~/ADJ+a/CASE_DEF_ACC" gloss="supreme;high" pos="adj" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="c" cas="a" enc0="0" source="spvar" stem="Ealiy~" sufgloss="[def.acc.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="Ealiy~i" lemma="Ealiy~_1" bw="Ealiy~/ADJ+i/CASE_DEF_GEN" gloss="supreme;high" pos="adj" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="c" cas="g" enc0="0" source="spvar" stem="Ealiy~" sufgloss="[def.gen.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="Ealiy~N" lemma="Ealiy~_1" bw="Ealiy~/ADJ+N/CASE_INDEF_NOM" gloss="supreme;high" pos="adj" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="i" cas="n" enc0="0" source="spvar" stem="Ealiy~" sufgloss="[indef.nom.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="Ealiy~K" lemma="Ealiy~_1" bw="Ealiy~/ADJ+K/CASE_INDEF_GEN" gloss="supreme;high" pos="adj" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="i" cas="g" enc0="0" source="spvar" stem="Ealiy~" sufgloss="[indef.gen.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="Ealiy~" lemma="Ealiy~_2" bw="Ealiy~/NOUN_PROP" gloss="Ali" pos="noun_prop" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="i" cas="u" enc0="0" source="spvar" stem="Ealiy~"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="Ealiy~u" lemma="Ealiy~_2" bw="Ealiy~/NOUN_PROP+u/CASE_DEF_NOM" gloss="Ali" pos="noun_prop" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="c" cas="n" enc0="0" source="spvar" stem="Ealiy~" sufgloss="[def.nom.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="Ealiy~a" lemma="Ealiy~_2" bw="Ealiy~/NOUN_PROP+a/CASE_DEF_ACC" gloss="Ali" pos="noun_prop" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="c" cas="a" enc0="0" source="spvar" stem="Ealiy~" sufgloss="[def.acc.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="Ealiy~i" lemma="Ealiy~_2" bw="Ealiy~/NOUN_PROP+i/CASE_DEF_GEN" gloss="Ali" pos="noun_prop" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="c" cas="g" enc0="0" source="spvar" stem="Ealiy~" sufgloss="[def.gen.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="Ealiy~N" lemma="Ealiy~_2" bw="Ealiy~/NOUN_PROP+N/CASE_INDEF_NOM" gloss="Ali" pos="noun_prop" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="i" cas="n" enc0="0" source="spvar" stem="Ealiy~" sufgloss="[indef.nom.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="Ealiy~K" lemma="Ealiy~_2" bw="Ealiy~/NOUN_PROP+K/CASE_INDEF_GEN" gloss="Ali" pos="noun_prop" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="i" cas="g" enc0="0" source="spvar" stem="Ealiy~" sufgloss="[indef.gen.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="Ely" lemma="Ely_0" bw="Ely/NOUN_PROP" gloss="NO_ANALYSIS" pos="noun_prop" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="i" cas="u" enc0="0" source="backoff" stem="Ely"/>
+                </analysis>
+            </word>
+            <word id="2" word="mr">
+                <analysis>
+                    <morph_feature_set diac="mar~a" lemma="mar~-u_1" bw="mar~/PV+a/PVSUFF_SUBJ:3MS" gloss="pass;go_through" pos="verb" prc3="0" prc2="0" prc1="0" prc0="0" per="3" asp="p" vox="a" mod="i" gen="m" num="s" stt="na" cas="na" enc0="0" source="lex" stem="mar~" sufgloss="he/it_[verb]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="mar~" lemma="mar~_1" bw="mar~/NOUN" gloss="passing" pos="noun" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="i" cas="u" enc0="0" source="lex" stem="mar~"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="mar~u" lemma="mar~_1" bw="mar~/NOUN+u/CASE_DEF_NOM" gloss="passing" pos="noun" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="c" cas="n" enc0="0" source="lex" stem="mar~" sufgloss="[def.nom.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="mar~a" lemma="mar~_1" bw="mar~/NOUN+a/CASE_DEF_ACC" gloss="passing" pos="noun" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="c" cas="a" enc0="0" source="lex" stem="mar~" sufgloss="[def.acc.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="mar~i" lemma="mar~_1" bw="mar~/NOUN+i/CASE_DEF_GEN" gloss="passing" pos="noun" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="c" cas="g" enc0="0" source="lex" stem="mar~" sufgloss="[def.gen.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="mar~N" lemma="mar~_1" bw="mar~/NOUN+N/CASE_INDEF_NOM" gloss="passing" pos="noun" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="i" cas="n" enc0="0" source="lex" stem="mar~" sufgloss="[indef.nom.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="mar~K" lemma="mar~_1" bw="mar~/NOUN+K/CASE_INDEF_GEN" gloss="passing" pos="noun" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="i" cas="g" enc0="0" source="lex" stem="mar~" sufgloss="[indef.gen.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="mur~" lemma="mur~_1" bw="mur~/ADJ" gloss="bitter" pos="adj" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="i" cas="u" enc0="0" source="lex" stem="mur~"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="mur~u" lemma="mur~_1" bw="mur~/ADJ+u/CASE_DEF_NOM" gloss="bitter" pos="adj" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="c" cas="n" enc0="0" source="lex" stem="mur~" sufgloss="[def.nom.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="mur~a" lemma="mur~_1" bw="mur~/ADJ+a/CASE_DEF_ACC" gloss="bitter" pos="adj" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="c" cas="a" enc0="0" source="lex" stem="mur~" sufgloss="[def.acc.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="mur~i" lemma="mur~_1" bw="mur~/ADJ+i/CASE_DEF_GEN" gloss="bitter" pos="adj" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="c" cas="g" enc0="0" source="lex" stem="mur~" sufgloss="[def.gen.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="mur~N" lemma="mur~_1" bw="mur~/ADJ+N/CASE_INDEF_NOM" gloss="bitter" pos="adj" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="i" cas="n" enc0="0" source="lex" stem="mur~" sufgloss="[indef.nom.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="mur~K" lemma="mur~_1" bw="mur~/ADJ+K/CASE_INDEF_GEN" gloss="bitter" pos="adj" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="i" cas="g" enc0="0" source="lex" stem="mur~" sufgloss="[indef.gen.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="mr" lemma="mr_0" bw="mr/NOUN_PROP" gloss="NO_ANALYSIS" pos="noun_prop" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="i" cas="u" enc0="0" source="backoff" stem="mr"/>
+                </analysis>
+            </word>
+            <word id="3" word="AlzmAn">
+                <analysis>
+                    <morph_feature_set diac="&gt;alozamAni" lemma="&gt;alozam_2" bw="&gt;alozam/ADJ_COMP+Ani/NSUFF_MASC_DU_NOM" gloss="more/most_necessary" pos="adj_comp" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="d" stt="i" cas="n" enc0="0" source="spvar" stem="&gt;alozam" sufgloss="two"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="Alz~amAn" lemma="zamAn_1" bw="Al/DET+zamAn/NOUN" gloss="time;duration" pos="noun" prc3="0" prc2="0" prc1="0" prc0="Al_det" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="d" cas="u" enc0="0" source="lex" stem="zamAn" pregloss="the"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="Alz~amAnu" lemma="zamAn_1" bw="Al/DET+zamAn/NOUN+u/CASE_DEF_NOM" gloss="time;duration" pos="noun" prc3="0" prc2="0" prc1="0" prc0="Al_det" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="d" cas="n" enc0="0" source="lex" stem="zamAn" pregloss="the" sufgloss="[def.nom.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="Alz~amAna" lemma="zamAn_1" bw="Al/DET+zamAn/NOUN+a/CASE_DEF_ACC" gloss="time;duration" pos="noun" prc3="0" prc2="0" prc1="0" prc0="Al_det" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="d" cas="a" enc0="0" source="lex" stem="zamAn" pregloss="the" sufgloss="[def.acc.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="Alz~amAni" lemma="zamAn_1" bw="Al/DET+zamAn/NOUN+i/CASE_DEF_GEN" gloss="time;duration" pos="noun" prc3="0" prc2="0" prc1="0" prc0="Al_det" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="d" cas="g" enc0="0" source="lex" stem="zamAn" pregloss="the" sufgloss="[def.gen.]"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="AlzmAn" lemma="AlzmAn_0" bw="AlzmAn/NOUN_PROP" gloss="NO_ANALYSIS" pos="noun_prop" prc3="0" prc2="0" prc1="0" prc0="0" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="i" cas="u" enc0="0" source="backoff" stem="AlzmAn"/>
+                </analysis>
+                <analysis>
+                    <morph_feature_set diac="AlzmAn" lemma="zmAn_0" bw="Al/DET+zmAn/NOUN_PROP" gloss="NO_ANALYSIS" pos="noun_prop" prc3="0" prc2="0" prc1="0" prc0="Al_det" per="na" asp="na" vox="na" mod="na" gen="m" num="s" stt="d" cas="u" enc0="0" source="backoff" stem="zmAn" pregloss="the"/>
+                </analysis>
+            </word>
+        </analysis_output>
+    </output_seg>
+    <output_seg id="G_1">
+        <generation_output dialect="MSA">
+            <generated_form score="1.0" diac="miSoriy~apK" surface="mSryh" bw="miSoriy~/ADJ+ap/NSUFF_FEM_SG+K/CASE_INDEF_GEN"/>
+            <generated_form score="1.0" diac="miSoriy~apN" surface="mSryh" bw="miSoriy~/ADJ+ap/NSUFF_FEM_SG+N/CASE_INDEF_NOM"/>
+            <generated_form score="1.0" diac="miSoriy~N" surface="mSry" bw="miSoriy~/ADJ+N/CASE_INDEF_NOM"/>
+            <generated_form score="1.0" diac="miSoriy~AF" surface="mSryA" bw="miSoriy~/ADJ+AF/CASE_INDEF_ACC"/>
+            <generated_form score="1.0" diac="miSoriy~K" surface="mSry" bw="miSoriy~/ADJ+K/CASE_INDEF_GEN"/>
+            <generated_form score="1.0" diac="miSoriy~apF" surface="mSryh" bw="miSoriy~/ADJ+ap/NSUFF_FEM_SG+F/CASE_INDEF_ACC"/>
+            <generated_form score="1.0" diac="miSoriy~" surface="mSry" bw="miSoriy~/ADJ"/>
+            <generated_form score="1.0" diac="miSoriy~ap" surface="mSryh" bw="miSoriy~/ADJ+ap/NSUFF_FEM_SG"/>
+        </generation_output>
+    </output_seg>
+    <output_seg id="G_2">
+        <generation_output dialect="MSA">
+            <generated_form score="0.8" diac="&gt;azamAtikumA" surface="AzmAtkmA" bw="&gt;azam/NOUN+At/NSUFF_FEM_PL+i/CASE_DEF_GEN+kumA/POSS_PRON_2D"/>
+            <generated_form score="0.8" diac="&gt;azamAti" surface="AzmAt" bw="&gt;azam/NOUN+At/NSUFF_FEM_PL+i/CASE_DEF_GEN"/>
+            <generated_form score="0.8" diac="&gt;azamAtihi" surface="AzmAth" bw="&gt;azam/NOUN+At/NSUFF_FEM_PL+i/CASE_DEF_GEN+hi/POSS_PRON_3MS"/>
+            <generated_form score="0.8" diac="&gt;azamAtK" surface="AzmAt" bw="&gt;azam/NOUN+At/NSUFF_FEM_PL+K/CASE_INDEF_GEN"/>
+            <generated_form score="0.8" diac="&gt;azamAtikum" surface="AzmAtkm" bw="&gt;azam/NOUN+At/NSUFF_FEM_PL+i/CASE_DEF_GEN+kum/POSS_PRON_2MP"/>
+            <generated_form score="0.8" diac="&gt;azamAtihin~a" surface="AzmAthn" bw="&gt;azam/NOUN+At/NSUFF_FEM_PL+i/CASE_DEF_GEN+hin~a/POSS_PRON_3FP"/>
+            <generated_form score="0.8" diac="&gt;azamAtika" surface="AzmAtk" bw="&gt;azam/NOUN+At/NSUFF_FEM_PL+i/CASE_DEF_GEN+ka/POSS_PRON_2MS"/>
+            <generated_form score="0.8" diac="&gt;azamAtihim" surface="AzmAthm" bw="&gt;azam/NOUN+At/NSUFF_FEM_PL+i/CASE_DEF_GEN+him/POSS_PRON_3MP"/>
+            <generated_form score="0.8" diac="&gt;azamAtiki" surface="AzmAtk" bw="&gt;azam/NOUN+At/NSUFF_FEM_PL+i/CASE_DEF_GEN+ki/POSS_PRON_2FS"/>
+            <generated_form score="0.8" diac="&gt;azamAtihimA" surface="AzmAthmA" bw="&gt;azam/NOUN+At/NSUFF_FEM_PL+i/CASE_DEF_GEN+himA/POSS_PRON_3D"/>
+            <generated_form score="0.8" diac="&gt;azamAtihA" surface="AzmAthA" bw="&gt;azam/NOUN+At/NSUFF_FEM_PL+i/CASE_DEF_GEN+hA/POSS_PRON_3FS"/>
+            <generated_form score="0.8" diac="&gt;azamAtikun~a" surface="AzmAtkn" bw="&gt;azam/NOUN+At/NSUFF_FEM_PL+i/CASE_DEF_GEN+kun~a/POSS_PRON_2FP"/>
+            <generated_form score="0.8" diac="&gt;azamAtinA" surface="AzmAtnA" bw="&gt;azam/NOUN+At/NSUFF_FEM_PL+i/CASE_DEF_GEN+nA/POSS_PRON_1P"/>
+        </generation_output>
+    </output_seg>
+</almor_output>

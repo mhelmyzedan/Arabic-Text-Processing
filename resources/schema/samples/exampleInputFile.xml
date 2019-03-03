@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright (c) 2013. The Trustees of Columbia University in the City of New York.
+  ~ The copyright owner has no objection to the reproduction of this work by anyone for
+  ~ non-commercial use, but otherwise reserves all rights whatsoever.  For avoidance of
+  ~ doubt, this work may not be reproduced, or modified, in whole or in part, for commercial
+  ~ use without the prior written consent of the copyright owner.
+  -->
+
+<madamira_input xmlns="urn:edu.columbia.ccls.madamira.configuration:0.1">
+    <madamira_configuration>
+        <preprocessing sentence_ids="false" separate_punct="true" input_encoding="UTF8"/>
+        <overall_vars output_encoding="UTF8" dialect="MSA" output_analyses="TOP" morph_backoff="NONE"/>
+        <requested_output>
+            <req_variable name="PREPROCESSED" value="true" />
+
+            <req_variable name="STEM" value="true" />
+            <req_variable name="GLOSS" value="true" />
+            <req_variable name="LEMMA" value="true" />
+            <req_variable name="DIAC" value="true" />
+
+            <req_variable name="ASP" value="true" />
+            <req_variable name="CAS" value="true" />
+            <req_variable name="ENC0" value="true" />
+            <req_variable name="ENC1" value="false" />
+            <req_variable name="ENC2" value="false" />
+            <req_variable name="GEN" value="true" />
+            <req_variable name="MOD" value="true" />
+            <req_variable name="NUM" value="true" />
+            <req_variable name="PER" value="true" />
+            <req_variable name="POS" value="true" />
+            <req_variable name="PRC0" value="true" />
+            <req_variable name="PRC1" value="true" />
+            <req_variable name="PRC2" value="true" />
+            <req_variable name="PRC3" value="true" />
+            <req_variable name="STT" value="true" />
+            <req_variable name="VOX" value="true" />
+
+            <req_variable name="BW" value="false" />
+            <req_variable name="SOURCE" value="false" />
+
+            <req_variable name="BPC" value="true" />
+            <req_variable name="NER" value="false" />
+        </requested_output>
+        <tokenization>
+            <scheme alias="ATB" />
+            <scheme alias="ATB4MT" />
+            <scheme alias="D3" />
+        </tokenization>
+    </madamira_configuration>
+
+    <in_doc id="ExampleDocument">
+        <in_seg id="SENT1">
+            السلطة الفلسطينية تستنكر استمرار سياسة الاغتيالات الاسرائي
+        </in_seg>
+        <in_seg id="SENT2">
+            غزة 1 - 11 ( اف ب ) - استنكرت السلطة الوطنية الفلسطينية اليوم الخميس استمرار سياسة الاغتيالات وعمليات قتل الفلسطينيين التي تنتهجها اسرائ
+            ?ل محملة الدول العبرية المسؤولية كاملة عن التصعيد
+        </in_seg>
+        <in_seg id="SENT3">
+            ويستمر غياب ينز يريميز ويورغ هاينريخ ومحمد شول وسيباستيان ديسلر بسبب الاصابة
+        </in_seg>
+    </in_doc>
+
+</madamira_input>

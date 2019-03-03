@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  DIRA XML Schema (Draft) v0.1 
+  
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:edu.columbia.ccls.dira:0.2" xmlns:ns1="urn:edu.columbia.ccls.dira:0.2">
+  <xs:element name="user_configuration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="ns1:output_lang_or_dialect"/>
+        <xs:element maxOccurs="unbounded" ref="ns1:inflection"/>
+        <xs:element minOccurs="0" ref="ns1:ranking_preference"/>
+      </xs:sequence>
+      <xs:attribute name="num_expansions" use="required" type="xs:integer"/>
+      <xs:attribute name="show_scores" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="show_features" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="show_gloss" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="yes"/>
+            <xs:enumeration value="no"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="output_lang_or_dialect">
+    <xs:complexType>
+      <xs:attribute name="value" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="MSA"/>
+            <xs:enumeration value="EGY"/>
+            <xs:enumeration value="all"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="inflection">
+    <xs:complexType>
+      <xs:attribute name="value" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="MSA"/>
+            <xs:enumeration value="EGY"/>
+            <xs:enumeration value="none"/>
+            <xs:enumeration value="all"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="input">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="ns1:user_configuration"/>
+        <xs:element maxOccurs="unbounded" ref="ns1:lemma"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="lemma">
+    <xs:complexType>
+      <xs:attribute name="id" use="required" type="xs:integer"/>
+      <xs:attribute name="languageOrDialect" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="English"/>
+            <xs:enumeration value="MSA"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="value" use="required" type="xs:string"/>
+      <xs:attribute name="pos">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="verb"/>
+            <xs:enumeration value="noun"/>
+            <xs:enumeration value="all"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="output">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ns1:for_lemma"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="for_lemma">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ns1:expansion"/>
+        <xs:element minOccurs="0" ref="ns1:warning"/>
+        <xs:element minOccurs="0" ref="ns1:error"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:integer"/>
+      <xs:attribute name="value" use="required" type="xs:string"/>
+      <xs:attribute name="pos" use="required" type="xs:string"/>
+      <xs:attribute name="gloss" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.exception">
+    <xs:attribute name="code" use="required" type="xs:integer"/>
+    <xs:attribute name="interpretation" use="required" type="xs:string"/>
+  </xs:attributeGroup>
+  <xs:element name="warning">
+    <xs:complexType>
+      <xs:attributeGroup ref="ns1:attlist.exception"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="error">
+    <xs:complexType>
+      <xs:attributeGroup ref="ns1:attlist.exception"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.expansion">
+    <xs:attribute name="languageOrDialect" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="English"/>
+          <xs:enumeration value="MSA"/>
+          <xs:enumeration value="EGY"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="inflection" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="MSA"/>
+          <xs:enumeration value="EGY"/>
+          <xs:enumeration value="none"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="features" type="xs:string"/>
+  </xs:attributeGroup>
+  <xs:element name="expansion">
+    <xs:complexType>
+      <xs:attribute name="value" use="required" type="xs:string"/>
+      <xs:attributeGroup ref="ns1:attlist.expansion"/>
+      <xs:attribute name="score" type="xs:integer"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ranking_preference">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="ns1:features"/>
+      </xs:sequence>
+      <xs:attribute name="alpha" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="features">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="ns1:noun"/>
+        <xs:element minOccurs="0" ref="ns1:verb"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="noun">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ns1:n_prc3"/>
+        <xs:element ref="ns1:n_prc2"/>
+        <xs:element ref="ns1:n_prc1"/>
+        <xs:element ref="ns1:n_prc0"/>
+        <xs:element ref="ns1:n_per"/>
+        <xs:element ref="ns1:n_asp"/>
+        <xs:element ref="ns1:n_vox"/>
+        <xs:element ref="ns1:n_mod"/>
+        <xs:element ref="ns1:n_gen"/>
+        <xs:element ref="ns1:n_num"/>
+        <xs:element ref="ns1:n_stt"/>
+        <xs:element ref="ns1:n_cas"/>
+        <xs:element ref="ns1:n_enc0"/>
+        <xs:element ref="ns1:n_enc1"/>
+        <xs:element ref="ns1:n_enc2"/>
+        <xs:element ref="ns1:n_source"/>
+        <xs:element ref="ns1:n_rat"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="n_prc3">
+    <xs:complexType>
+      <xs:attribute name="W_0" use="required" type="xs:double"/>
+      <xs:attribute name="W_-gt-a_ques" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="n_prc2">
+    <xs:complexType>
+      <xs:attribute name="W_fa_conn" use="required" type="xs:double"/>
+      <xs:attribute name="W_fa_rc" use="required" type="xs:double"/>
+      <xs:attribute name="W_na" use="required" type="xs:double"/>
+      <xs:attribute name="W_0" use="required" type="xs:double"/>
+      <xs:attribute name="W_wa_part" use="required" type="xs:double"/>
+      <xs:attribute name="W_wa_sub" use="required" type="xs:double"/>
+      <xs:attribute name="W_fa_sub" use="required" type="xs:double"/>
+      <xs:attribute name="W_wa_conj" use="required" type="xs:double"/>
+      <xs:attribute name="W_fa_conj" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="n_prc1">
+    <xs:complexType>
+      <xs:attribute name="W_ka_prep" use="required" type="xs:double"/>
+      <xs:attribute name="W_0" use="required" type="xs:double"/>
+      <xs:attribute name="W_li_prep" use="required" type="xs:double"/>
+      <xs:attribute name="W_bi_prep" use="required" type="xs:double"/>
+      <xs:attribute name="W_la_prep" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="n_prc0">
+    <xs:complexType>
+      <xs:attribute name="W_0" use="required" type="xs:double"/>
+      <xs:attribute name="W_Al_det" use="required" type="xs:double"/>
+      <xs:attribute name="W_Aa_prondem" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="n_per">
+    <xs:complexType>
+      <xs:attribute name="W_na" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="n_asp">
+    <xs:complexType>
+      <xs:attribute name="W_na" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="n_vox">
+    <xs:complexType>
+      <xs:attribute name="W_na" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="n_mod">
+    <xs:complexType>
+      <xs:attribute name="W_na" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="n_gen">
+    <xs:complexType>
+      <xs:attribute name="W_m" use="required" type="xs:double"/>
+      <xs:attribute name="W_f" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="n_num">
+    <xs:complexType>
+      <xs:attribute name="W_s" use="required" type="xs:double"/>
+      <xs:attribute name="W_d" use="required" type="xs:double"/>
+      <xs:attribute name="W_p" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="n_stt">
+    <xs:complexType>
+      <xs:attribute name="W_i" use="required" type="xs:double"/>
+      <xs:attribute name="W_c" use="required" type="xs:double"/>
+      <xs:attribute name="W_d" use="required" type="xs:double"/>
+      <xs:attribute name="W_u" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="n_cas">
+    <xs:complexType>
+      <xs:attribute name="W_u" use="required" type="xs:double"/>
+      <xs:attribute name="W_n" use="required" type="xs:double"/>
+      <xs:attribute name="W_a" use="required" type="xs:double"/>
+      <xs:attribute name="W_g" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="n_enc0">
+    <xs:complexType>
+      <xs:attribute name="W_3mp_poss" use="required" type="xs:double"/>
+      <xs:attribute name="W_2mp_poss" use="required" type="xs:double"/>
+      <xs:attribute name="W_3ms_poss" use="required" type="xs:double"/>
+      <xs:attribute name="W_0" use="required" type="xs:double"/>
+      <xs:attribute name="W_2fp_poss" use="required" type="xs:double"/>
+      <xs:attribute name="W_1s_poss" use="required" type="xs:double"/>
+      <xs:attribute name="W_1p_poss" use="required" type="xs:double"/>
+      <xs:attribute name="W_2fs_poss" use="required" type="xs:double"/>
+      <xs:attribute name="W_3d_poss" use="required" type="xs:double"/>
+      <xs:attribute name="W_3fp_poss" use="required" type="xs:double"/>
+      <xs:attribute name="W_2d_poss" use="required" type="xs:double"/>
+      <xs:attribute name="W_3fs_poss" use="required" type="xs:double"/>
+      <xs:attribute name="W_2ms_poss" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="n_enc1">
+    <xs:complexType>
+      <xs:attribute name="W_0" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="n_enc2">
+    <xs:complexType>
+      <xs:attribute name="W_0" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="n_source">
+    <xs:complexType>
+      <xs:attribute name="W_lex" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="n_rat">
+    <xs:complexType>
+      <xs:attribute name="W_na" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="verb">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ns1:v_prc3"/>
+        <xs:element ref="ns1:v_prc2"/>
+        <xs:element ref="ns1:v_prc1"/>
+        <xs:element ref="ns1:v_prc0"/>
+        <xs:element ref="ns1:v_per"/>
+        <xs:element ref="ns1:v_asp"/>
+        <xs:element ref="ns1:v_vox"/>
+        <xs:element ref="ns1:v_mod"/>
+        <xs:element ref="ns1:v_gen"/>
+        <xs:element ref="ns1:v_num"/>
+        <xs:element ref="ns1:v_stt"/>
+        <xs:element ref="ns1:v_cas"/>
+        <xs:element ref="ns1:v_enc0"/>
+        <xs:element ref="ns1:v_enc1"/>
+        <xs:element ref="ns1:v_enc2"/>
+        <xs:element ref="ns1:v_source"/>
+        <xs:element ref="ns1:v_rat"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="v_prc3">
+    <xs:complexType>
+      <xs:attribute name="W_0" use="required" type="xs:double"/>
+      <xs:attribute name="W_-gt-a_ques" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="v_prc2">
+    <xs:complexType>
+      <xs:attribute name="W_fa_conn" use="required" type="xs:double"/>
+      <xs:attribute name="W_fa_rc" use="required" type="xs:double"/>
+      <xs:attribute name="W_0" use="required" type="xs:double"/>
+      <xs:attribute name="W_wa_part" use="required" type="xs:double"/>
+      <xs:attribute name="W_wa_sub" use="required" type="xs:double"/>
+      <xs:attribute name="W_fa_sub" use="required" type="xs:double"/>
+      <xs:attribute name="W_wa_conj" use="required" type="xs:double"/>
+      <xs:attribute name="W_fa_conj" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="v_prc1">
+    <xs:complexType>
+      <xs:attribute name="W_la_emph" use="required" type="xs:double"/>
+      <xs:attribute name="W_li_jus" use="required" type="xs:double"/>
+      <xs:attribute name="W_0" use="required" type="xs:double"/>
+      <xs:attribute name="W_la_rc" use="required" type="xs:double"/>
+      <xs:attribute name="W_sa_fut" use="required" type="xs:double"/>
+      <xs:attribute name="W_bi_part" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="v_prc0">
+    <xs:complexType>
+      <xs:attribute name="W_mA_part" use="required" type="xs:double"/>
+      <xs:attribute name="W_0" use="required" type="xs:double"/>
+      <xs:attribute name="W_mA_neg" use="required" type="xs:double"/>
+      <xs:attribute name="W_lA_neg" use="required" type="xs:double"/>
+      <xs:attribute name="W_mA_rel" use="required" type="xs:double"/>
+      <xs:attribute name="W_Aa_prondem" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="v_per">
+    <xs:complexType>
+      <xs:attribute name="W_3" use="required" type="xs:double"/>
+      <xs:attribute name="W_2" use="required" type="xs:double"/>
+      <xs:attribute name="W_1" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="v_asp">
+    <xs:complexType>
+      <xs:attribute name="W_p" use="required" type="xs:double"/>
+      <xs:attribute name="W_c" use="required" type="xs:double"/>
+      <xs:attribute name="W_i" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="v_vox">
+    <xs:complexType>
+      <xs:attribute name="W_p" use="required" type="xs:double"/>
+      <xs:attribute name="W_a" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="v_mod">
+    <xs:complexType>
+      <xs:attribute name="W_s" use="required" type="xs:double"/>
+      <xs:attribute name="W_i" use="required" type="xs:double"/>
+      <xs:attribute name="W_j" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="v_gen">
+    <xs:complexType>
+      <xs:attribute name="W_m" use="required" type="xs:double"/>
+      <xs:attribute name="W_f" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="v_num">
+    <xs:complexType>
+      <xs:attribute name="W_s" use="required" type="xs:double"/>
+      <xs:attribute name="W_d" use="required" type="xs:double"/>
+      <xs:attribute name="W_p" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="v_stt">
+    <xs:complexType>
+      <xs:attribute name="W_na" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="v_cas">
+    <xs:complexType>
+      <xs:attribute name="W_na" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="v_enc0">
+    <xs:complexType>
+      <xs:attribute name="W_0" use="required" type="xs:double"/>
+      <xs:attribute name="W_3d_dobj" use="required" type="xs:double"/>
+      <xs:attribute name="W_3mp_dobj" use="required" type="xs:double"/>
+      <xs:attribute name="W_1s_dobj" use="required" type="xs:double"/>
+      <xs:attribute name="W_3fs_dobj" use="required" type="xs:double"/>
+      <xs:attribute name="W_2d_dobj" use="required" type="xs:double"/>
+      <xs:attribute name="W_2mp_dobj" use="required" type="xs:double"/>
+      <xs:attribute name="W_3ms_dobj" use="required" type="xs:double"/>
+      <xs:attribute name="W_2fp_dobj" use="required" type="xs:double"/>
+      <xs:attribute name="W_3fp_dobj" use="required" type="xs:double"/>
+      <xs:attribute name="W_2fs_dobj" use="required" type="xs:double"/>
+      <xs:attribute name="W_1p_dobj" use="required" type="xs:double"/>
+      <xs:attribute name="W_2ms_dobj" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="v_enc1">
+    <xs:complexType>
+      <xs:attribute name="W_0" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="v_enc2">
+    <xs:complexType>
+      <xs:attribute name="W_0" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="v_source">
+    <xs:complexType>
+      <xs:attribute name="W_lex" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="v_rat">
+    <xs:complexType>
+      <xs:attribute name="W_na" use="required" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    An identifier is a sequence of letters and digits. The first character
+    must be a letter or the underscore character _. Upper and lower 
+    case letters are different, and identifiers may have any length.
+  -->
+  <xs:simpleType name="identifier">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-zA-Z_][a-zA-Z_0-9]*"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- M.N, where M and N are positive integers. -->
+  <xs:simpleType name="version_num">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(0|[1-9]([0-9]*))\.(0|[1-9]([0-9]*))"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

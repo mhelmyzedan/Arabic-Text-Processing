@@ -1,0 +1,81 @@
+# Cogent Configuration XML Schema
+#
+
+default namespace = "urn:edu.columbia.ccls.cogent.configuration:0.1"
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+
+start |= cogent_configuration
+
+cogent_configuration =
+    element cogent_configuration {
+        overall_params,
+		training_params,
+		prediction_params
+    }
+
+overall_params =
+    element overall_params {
+		attribute ML_tool { xsd:string },           # Which MLTool to use (only libsvm, liblinear at moment)
+	    attribute model_directory { xsd:string },   # Location to find/place models
+    	attribute model_group_name { xsd:string },   # Name of Model Group
+    	[a:default="default"]
+    	attribute ML_tool_config_file { xsd:string }?  # Location of ML Tool Configuration file to use
+    }
+
+training_params =
+    element training_params {
+        element training_model_group_params {
+            training_model_params+
+        }
+    }
+
+prediction_params =
+    element prediction_params {
+        [a:default="false"]
+        attribute parallel_core_prediction { xsd:boolean }?, # Whether to allow different model predictions
+                                                             # to be spun off into separate cores on processor
+        element prediction_model_group_params {
+            prediction_model_params+
+        }
+    }
+
+
+training_model_params =
+    element training_model_params {
+	    attribute name { xsd:string },                    # Name of Model
+
+	    [a:default="100000"]
+		attribute max_feat_num { xsd:integer }?,           # Feature Filtering Max # of Features to use
+
+		[a:default="2"]
+    	attribute min_feat_occur { xsd:integer }?,         # Feature Filtering Min # Occurrences before feat can be used
+
+		attribute input_train_data_file { xsd:string },   # Location of Training data
+        attribute feature_set { xsd:string },	          # Feature Set String to parse
+
+        [a:default="0.001"]
+		attribute dict_repair_threshold { xsd:double }?	  # Dictionary Repairing Threshold
+    }
+
+
+prediction_model_params =
+    element prediction_model_params {
+		attribute name { xsd:string },   # Name of Model
+
+		# Location of Dev data (String); only necessary for command-line operation.  Different models
+        # might need different files if one has user-defined features that the others don't.
+        # But might very well be the same file used with another model.  Regardless of the presence of
+        # user-defined features, the words.
+
+        [a:default=""]
+    	attribute input_pred_data_file { xsd:string }?	
+    }
+
+    
+    # An identifier is a sequence of letters and digits. The first character
+    # must be a letter or the underscore character _. Upper and lower 
+    # case letters are different, and identifiers may have any length.
+    identifier |= xsd:string { pattern="[a-zA-Z_][a-zA-Z_0-9]*" }
+    
+    # M.N, where M and N are positive integers. 
+    version_num |= xsd:string { pattern="(0|[1-9]([0-9]*))\.(0|[1-9]([0-9]*))" }

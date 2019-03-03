@@ -1,0 +1,119 @@
+# ALMOR Configuration XML Schema
+
+default namespace = "urn:edu.columbia.ccls.common.almor.configuration:0.1"
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+
+start |= input_doc_ref | output_doc_ref
+
+
+input_doc_ref =
+    element almor_input {
+       attribute id { xsd:string }?,
+       element input_seg {
+          attribute id { xsd:string },
+          ( analysis_input_ref | generation_input_ref )
+       }*
+
+    }
+
+output_doc_ref =
+    element almor_output {
+      attribute id { xsd:string }?,
+      element output_seg {
+         attribute id { xsd:string },
+         ( analysis_output_ref | generation_output_ref)
+      }*
+
+    }
+
+
+
+analysis_input_ref =
+    element analysis_input {
+        [a:default="MSA"]
+        attribute dialect { "MSA" | "EGY" }?,
+        [a:default="NONE"]
+        attribute backoff { "NONE" | "NOAN_PROP" | "NOAN_ALL" | "ADD_PROP" | "ADD_ALL" }?,
+        xsd:string
+    }
+
+generation_input_ref =
+    element generation_input {
+        [a:default="MSA"]
+        attribute dialect { "MSA" | "EGY" }?,
+        analysis_ref
+    }
+
+analysis_output_ref =
+    element analysis_output {                   ## Sentence-level output information
+       [a:default="MSA"]
+       attribute dialect { "MSA" | "EGY" },
+       [a:default="NONE"]
+       attribute backoff { "NONE" | "NOAN_PROP" | "NOAN_ALL" | "ADD_PROP" | "ADD_ALL" },
+       word_ref*
+   }
+
+generation_output_ref =
+    element generation_output {
+        [a:default="MSA"]
+        attribute dialect { "MSA" | "EGY" },
+        generated_form_ref*
+    }
+
+generated_form_ref =
+    element generated_form {
+        attribute score { xsd:double },
+        attribute diac { xsd:string },
+        attribute surface { xsd:string},
+        attribute bw { xsd:string}
+    }
+
+
+word_ref =
+    element word {                          ## Word-level output information
+         attribute id { xsd:integer },
+         attribute word {xsd:string},
+         analysis_ref*
+
+      }
+
+analysis_ref =
+    element analysis {
+        attribute rank { xsd:string }?,
+        attribute score { xsd:double }?,
+        element morph_feature_set {
+           attribute diac { xsd:string }?,
+           attribute lemma { xsd:string }?,
+           attribute bw { xsd:string }?,
+           attribute gloss { xsd:string }?,
+           attribute pos { xsd:string }?,
+           attribute prc3 { xsd:string }?,
+           attribute prc2 { xsd:string }?,
+           attribute prc1 { xsd:string }?,
+           attribute prc0 { xsd:string }?,
+           attribute per { xsd:string }?,
+           attribute asp { xsd:string }?,
+           attribute vox { xsd:string }?,
+           attribute mod { xsd:string }?,
+           attribute gen { xsd:string }?,
+           attribute num { xsd:string }?,
+           attribute stt { xsd:string }?,
+           attribute cas { xsd:string }?,
+           attribute enc0 { xsd:string }?,
+           attribute enc1 { xsd:string }?,
+           attribute enc2 { xsd:string }?,
+           attribute source { xsd:string }?,
+           attribute stem { xsd:string }?,
+           attribute pregloss {xsd:string }?,
+           attribute sufgloss {xsd:string }?
+        }
+    }
+
+
+    # An identifier is a sequence of letters and digits. The first character
+    # must be a letter or the underscore character _. Upper and lower
+    # case letters are different, and identifiers may have any length.
+    identifier |= xsd:string { pattern="[a-zA-Z_][a-zA-Z_0-9]*" }
+
+    # M.N, where M and N are positive integers.
+    version_num |= xsd:string { pattern="(0|[1-9]([0-9]*))\.(0|[1-9]([0-9]*))" }

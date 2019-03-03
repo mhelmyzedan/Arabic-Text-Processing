@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Cogent Configuration XML Schema
+  
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:edu.columbia.ccls.cogent.configuration:0.1" xmlns:ns1="urn:edu.columbia.ccls.cogent.configuration:0.1">
+  <xs:element name="cogent_configuration">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ns1:overall_params"/>
+        <xs:element ref="ns1:training_params"/>
+        <xs:element ref="ns1:prediction_params"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="overall_params">
+    <xs:complexType>
+      <xs:attribute name="ML_tool" use="required" type="xs:string"/>
+      <xs:attribute name="model_directory" use="required" type="xs:string"/>
+      <xs:attribute name="model_group_name" use="required" type="xs:string"/>
+      <xs:attribute name="ML_tool_config_file" type="xs:string" default="default"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="training_params">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ns1:training_model_group_params"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="training_model_group_params">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="ns1:training_model_params"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="prediction_params">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ns1:prediction_model_group_params"/>
+      </xs:sequence>
+      <xs:attribute name="parallel_core_prediction" type="xs:boolean" default="false"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="prediction_model_group_params">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="ns1:prediction_model_params"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="training_model_params">
+    <xs:complexType>
+      <xs:attribute name="name" use="required" type="xs:string"/>
+      <xs:attribute name="max_feat_num" type="xs:integer" default="100000"/>
+      <xs:attribute name="min_feat_occur" type="xs:integer" default="2"/>
+      <xs:attribute name="input_train_data_file" use="required" type="xs:string"/>
+      <xs:attribute name="feature_set" use="required" type="xs:string"/>
+      <xs:attribute name="dict_repair_threshold" type="xs:double" default="0.001"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="prediction_model_params">
+    <xs:complexType>
+      <xs:attribute name="name" use="required" type="xs:string"/>
+      <xs:attribute name="input_pred_data_file" type="xs:string" default=""/>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    An identifier is a sequence of letters and digits. The first character
+    must be a letter or the underscore character _. Upper and lower 
+    case letters are different, and identifiers may have any length.
+  -->
+  <xs:simpleType name="identifier">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-zA-Z_][a-zA-Z_0-9]*"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- M.N, where M and N are positive integers. -->
+  <xs:simpleType name="version_num">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(0|[1-9]([0-9]*))\.(0|[1-9]([0-9]*))"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

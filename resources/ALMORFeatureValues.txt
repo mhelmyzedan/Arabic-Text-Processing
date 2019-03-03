@@ -1,0 +1,232 @@
+ASP
+	na
+	i
+	p
+	c
+
+CAS
+	na
+	g
+	u
+	a
+	n
+
+ENC0
+	0
+	na
+	3ms_poss
+	3fs_poss
+	3ms_pron
+	3fs_pron
+	3ms_dobj
+	3fs_dobj
+	3mp_poss
+	1p_poss
+	1s_poss
+	3mp_pron
+	2ms_poss
+	mA_sub
+	1p_pron
+	1s_pron
+	1s_dobj
+	3d_poss
+	1p_dobj
+	mA_rel
+	2fs_poss
+	2ms_pron
+	3mp_dobj
+	2ms_dobj
+	3p_dobj
+	3d_pron
+	2mp_poss
+	2p_poss
+	2fs_pron
+	lA_neg
+	2fs_dobj
+	3p_poss
+	3p_pron
+	2mp_pron
+	3d_dobj
+	2p_pron
+	2p_dobj
+	man_rel
+	2mp_dobj
+	3fp_poss
+	3fp_pron
+	2fp_poss
+	2d_poss
+	2fp_pron
+	ma_interrog
+	ma_rel
+	3fp_dobj
+	2d_dobj
+	2d_pron
+	2fp_dobj
+	Ah_voc
+	mA_interrog
+	ma_sub
+	man_interrog
+
+ENC1
+	0
+	na
+	1s_iobj
+	3ms_iobj
+	2ms_iobj
+	3fs_iobj
+	2fs_iobj
+	3p_iobj
+	1p_iobj
+	2p_iobj
+	1s_dobj
+
+ENC2
+	0
+	part_neg
+	na
+
+GEN
+	na
+	m
+	f
+
+MOD
+	na
+	i
+	s
+	j
+	u
+
+NUM
+	na
+	s
+	p
+	d
+	u
+
+PER
+	na
+	1
+	2
+	3
+
+POS
+	noun
+	verb
+	punc
+	adj
+	prep
+	noun_prop
+	noun_num
+	conj_sub
+	pron_rel
+	pron_dem
+	pron
+	part_neg
+	noun_quant
+	conj
+	adj_num
+	abbrev
+	verb_pseudo
+	adj_comp
+	adv
+	pron_interrog
+	part_verb
+	part_voc
+	interj
+	adv_rel
+	adv_interrog
+	part
+	part_restrict
+	part_focus
+	part_det
+	part_interrog
+	part_fut
+	digit
+	latin
+	part_dem
+	pron_exclam
+	unk
+
+PRC0
+	0
+	na
+	Al_det
+	mA_neg
+	ma_neg
+	lA_neg
+	AlmA_detneg
+	mA_part
+	mA_rel
+	Aa_prondem
+
+PRC1
+	0
+	na
+	li_prep
+	bi_prep
+	sa_fut
+	bi_prog
+	ka_prep
+	Ha_fut
+	EalaY_prep
+	wa_prep
+	la_prep
+	li_jus
+	la_rc
+	ta_prep
+	bi_part
+	la_emph
+	fiy_prep
+	libi_prep
+	Ea_prep
+	hA_dem
+	min_prep
+	wA_voc
+	yA_voc
+	laHa_emphfut
+	laHa_rcfut
+	<i$_interrog
+
+PRC2
+	0
+	na
+	wa_conj
+	fa_conj
+	fa_conn
+	wa_sub
+	fa_rc
+	fa_sub
+	wa_part
+
+PRC3
+	0
+	na
+	>a_ques
+
+STT
+	na
+	i
+	c
+	d
+	u
+
+VOX
+	na
+	a
+	p
+	u
+
+SOURCE
+	lex
+	punc
+	spvar
+	backoff
+	digit
+	foreign
+
+RAT
+	na
+	y
+	n
+

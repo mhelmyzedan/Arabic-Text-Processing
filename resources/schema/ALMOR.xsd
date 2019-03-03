@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ALMOR Configuration XML Schema -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="urn:edu.columbia.ccls.common.almor.configuration:0.1" xmlns:ns1="urn:edu.columbia.ccls.common.almor.configuration:0.1">
+  <xs:element name="almor_input">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ns1:input_seg"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="input_seg">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="ns1:analysis_input"/>
+        <xs:element ref="ns1:generation_input"/>
+      </xs:choice>
+      <xs:attribute name="id" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="almor_output">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ns1:output_seg"/>
+      </xs:sequence>
+      <xs:attribute name="id" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="output_seg">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element ref="ns1:analysis_output"/>
+        <xs:element ref="ns1:generation_output"/>
+      </xs:choice>
+      <xs:attribute name="id" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="analysis_input">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:string">
+          <xs:attribute name="dialect" default="MSA">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="MSA"/>
+                <xs:enumeration value="EGY"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:attribute name="backoff" default="NONE">
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="NONE"/>
+                <xs:enumeration value="NOAN_PROP"/>
+                <xs:enumeration value="NOAN_ALL"/>
+                <xs:enumeration value="ADD_PROP"/>
+                <xs:enumeration value="ADD_ALL"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="generation_input">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ns1:analysis"/>
+      </xs:sequence>
+      <xs:attribute name="dialect" default="MSA">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="MSA"/>
+            <xs:enumeration value="EGY"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="analysis_output">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ns1:word"/>
+      </xs:sequence>
+      <xs:attribute name="dialect" use="required">
+        <xs:annotation>
+          <xs:documentation>Sentence-level output information</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="MSA"/>
+            <xs:enumeration value="EGY"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="backoff" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="NONE"/>
+            <xs:enumeration value="NOAN_PROP"/>
+            <xs:enumeration value="NOAN_ALL"/>
+            <xs:enumeration value="ADD_PROP"/>
+            <xs:enumeration value="ADD_ALL"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="generation_output">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ns1:generated_form"/>
+      </xs:sequence>
+      <xs:attribute name="dialect" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="MSA"/>
+            <xs:enumeration value="EGY"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="generated_form">
+    <xs:complexType>
+      <xs:attribute name="score" use="required" type="xs:double"/>
+      <xs:attribute name="diac" use="required" type="xs:string"/>
+      <xs:attribute name="surface" use="required" type="xs:string"/>
+      <xs:attribute name="bw" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="word">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="ns1:analysis"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:integer">
+        <xs:annotation>
+          <xs:documentation>Word-level output information</xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+      <xs:attribute name="word" use="required" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="analysis">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ns1:morph_feature_set"/>
+      </xs:sequence>
+      <xs:attribute name="rank" type="xs:string"/>
+      <xs:attribute name="score" type="xs:double"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="morph_feature_set">
+    <xs:complexType>
+      <xs:attribute name="diac" type="xs:string"/>
+      <xs:attribute name="lemma" type="xs:string"/>
+      <xs:attribute name="bw" type="xs:string"/>
+      <xs:attribute name="gloss" type="xs:string"/>
+      <xs:attribute name="pos" type="xs:string"/>
+      <xs:attribute name="prc3" type="xs:string"/>
+      <xs:attribute name="prc2" type="xs:string"/>
+      <xs:attribute name="prc1" type="xs:string"/>
+      <xs:attribute name="prc0" type="xs:string"/>
+      <xs:attribute name="per" type="xs:string"/>
+      <xs:attribute name="asp" type="xs:string"/>
+      <xs:attribute name="vox" type="xs:string"/>
+      <xs:attribute name="mod" type="xs:string"/>
+      <xs:attribute name="gen" type="xs:string"/>
+      <xs:attribute name="num" type="xs:string"/>
+      <xs:attribute name="stt" type="xs:string"/>
+      <xs:attribute name="cas" type="xs:string"/>
+      <xs:attribute name="enc0" type="xs:string"/>
+      <xs:attribute name="enc1" type="xs:string"/>
+      <xs:attribute name="enc2" type="xs:string"/>
+      <xs:attribute name="source" type="xs:string"/>
+      <xs:attribute name="stem" type="xs:string"/>
+      <xs:attribute name="pregloss" type="xs:string"/>
+      <xs:attribute name="sufgloss" type="xs:string"/>
+    </xs:complexType>
+  </xs:element>
+  <!--
+    An identifier is a sequence of letters and digits. The first character
+    must be a letter or the underscore character _. Upper and lower
+    case letters are different, and identifiers may have any length.
+  -->
+  <xs:simpleType name="identifier">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="[a-zA-Z_][a-zA-Z_0-9]*"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- M.N, where M and N are positive integers. -->
+  <xs:simpleType name="version_num">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="(0|[1-9]([0-9]*))\.(0|[1-9]([0-9]*))"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,55 @@
+# Cogent SVM Configuration XML Schema
+#
+
+default namespace = "urn:edu.columbia.ccls.cogent.libLinear.configuration:0.1"
+namespace a = "http://relaxng.org/ns/compatibility/annotations/1.0"
+
+start |= LibLinear_configuration
+
+LibLinear_configuration =
+    element LibLinear_configuration {
+        overall_params,
+		training_params,
+		prediction_params
+    }
+
+overall_params =
+    element overall_params {
+        [a:default="false"]
+        attribute quiet_mode { xsd:boolean }?
+    }
+
+training_params =
+    element training_params {
+        [a:default="1"]
+        attribute solver_type { "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "11" | "12" | "13" }?,
+        [a:default="1.0"]
+        attribute C_parameter { xsd:double }?,
+        [a:default="0.1"]
+        attribute p_parameter { xsd:double }?,
+        [a:default="0.01"]
+        attribute eps { xsd:double }?,
+        [a:default="-1"]
+        attribute bias { xsd:double }?,
+        [a:default=""]
+        attribute class_weights { xsd:string }?,     # NOT TO BE IMPLEMENTED IMMEDIATELY
+        [a:default="0"]
+        attribute n_fold_cross_validation { xsd:integer }?  # NOT TO BE IMPLEMENTED IMMEDIATELY
+    }
+
+prediction_params =
+    element prediction_params {
+        [a:default="false"]
+        attribute predict_probs { xsd:boolean }?   # NOT TO BE IMPLEMENTED IMMEDIATELY
+
+    }
+
+
+
+    # An identifier is a sequence of letters and digits. The first character
+    # must be a letter or the underscore character _. Upper and lower 
+    # case letters are different, and identifiers may have any length.
+    identifier |= xsd:string { pattern="[a-zA-Z_][a-zA-Z_0-9]*" }
+    
+    # M.N, where M and N are positive integers. 
+    version_num |= xsd:string { pattern="(0|[1-9]([0-9]*))\.(0|[1-9]([0-9]*))" }

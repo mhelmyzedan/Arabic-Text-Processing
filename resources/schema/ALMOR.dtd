@@ -1,0 +1,105 @@
+<?xml encoding="UTF-8"?>
+
+<!-- ALMOR Configuration XML Schema -->
+
+<!ELEMENT almor_input (input_seg)*>
+<!ATTLIST almor_input
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.common.almor.configuration:0.1'
+  id CDATA #IMPLIED>
+
+<!ELEMENT input_seg (analysis_input|generation_input)>
+<!ATTLIST input_seg
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.common.almor.configuration:0.1'
+  id CDATA #REQUIRED>
+
+<!ELEMENT almor_output (output_seg)*>
+<!ATTLIST almor_output
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.common.almor.configuration:0.1'
+  id CDATA #IMPLIED>
+
+<!ELEMENT output_seg (analysis_output|generation_output)>
+<!ATTLIST output_seg
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.common.almor.configuration:0.1'
+  id CDATA #REQUIRED>
+
+<!ELEMENT analysis_input (#PCDATA)>
+<!ATTLIST analysis_input
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.common.almor.configuration:0.1'
+  dialect (MSA|EGY) #IMPLIED
+  backoff (NONE|NOAN_PROP|NOAN_ALL|ADD_PROP|ADD_ALL) #IMPLIED>
+
+<!ELEMENT generation_input (analysis)>
+<!ATTLIST generation_input
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.common.almor.configuration:0.1'
+  dialect (MSA|EGY) #IMPLIED>
+
+<!ELEMENT analysis_output (word)*>
+<!ATTLIST analysis_output
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.common.almor.configuration:0.1'
+  dialect (MSA|EGY) #REQUIRED
+  backoff (NONE|NOAN_PROP|NOAN_ALL|ADD_PROP|ADD_ALL) #REQUIRED>
+
+<!ELEMENT generation_output (generated_form)*>
+<!ATTLIST generation_output
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.common.almor.configuration:0.1'
+  dialect (MSA|EGY) #REQUIRED>
+
+<!ELEMENT generated_form EMPTY>
+<!ATTLIST generated_form
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.common.almor.configuration:0.1'
+  score CDATA #REQUIRED
+  diac CDATA #REQUIRED
+  surface CDATA #REQUIRED
+  bw CDATA #REQUIRED>
+
+<!ELEMENT word (analysis)*>
+<!ATTLIST word
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.common.almor.configuration:0.1'
+  id CDATA #REQUIRED
+  word CDATA #REQUIRED>
+
+<!ELEMENT analysis (morph_feature_set)>
+<!ATTLIST analysis
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.common.almor.configuration:0.1'
+  rank CDATA #IMPLIED
+  score CDATA #IMPLIED>
+
+<!ELEMENT morph_feature_set EMPTY>
+<!ATTLIST morph_feature_set
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.common.almor.configuration:0.1'
+  diac CDATA #IMPLIED
+  lemma CDATA #IMPLIED
+  bw CDATA #IMPLIED
+  gloss CDATA #IMPLIED
+  pos CDATA #IMPLIED
+  prc3 CDATA #IMPLIED
+  prc2 CDATA #IMPLIED
+  prc1 CDATA #IMPLIED
+  prc0 CDATA #IMPLIED
+  per CDATA #IMPLIED
+  asp CDATA #IMPLIED
+  vox CDATA #IMPLIED
+  mod CDATA #IMPLIED
+  gen CDATA #IMPLIED
+  num CDATA #IMPLIED
+  stt CDATA #IMPLIED
+  cas CDATA #IMPLIED
+  enc0 CDATA #IMPLIED
+  enc1 CDATA #IMPLIED
+  enc2 CDATA #IMPLIED
+  source CDATA #IMPLIED
+  stem CDATA #IMPLIED
+  pregloss CDATA #IMPLIED
+  sufgloss CDATA #IMPLIED>
+
+<!--
+An identifier is a sequence of letters and digits. The first character
+must be a letter or the underscore character _. Upper and lower
+case letters are different, and identifiers may have any length.
+-->
+
+<!ENTITY % identifier "CDATA">
+
+<!-- M.N, where M and N are positive integers. -->
+
+<!ENTITY % version_num "CDATA">

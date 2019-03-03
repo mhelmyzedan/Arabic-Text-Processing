@@ -1,0 +1,77 @@
+enc0 3ms_poss POSS_PRON_3MS
+enc0 3fs_poss POSS_PRON_3FS
+enc0 3ms_pron PRON_3MS
+enc0 3fs_pron PRON_3FS
+enc0 3ms_dobj CVSUFF_DO:3MS IVSUFF_DO:3MS PVSUFF_DO:3MS
+enc0 3fs_dobj CVSUFF_DO:3FS IVSUFF_DO:3FS PVSUFF_DO:3FS
+enc0 3mp_poss POSS_PRON_3MP
+enc0 1p_poss POSS_PRON_1P
+enc0 1s_poss POSS_PRON_1S
+enc0 3mp_pron PRON_3MP
+enc0 2ms_poss POSS_PRON_2MS
+enc0 mA_sub SUB_CONJ
+enc0 1p_pron PRON_1P
+enc0 1s_pron PRON_1S
+enc0 3d_poss POSS_PRON_3D
+enc0 1s_dobj CVSUFF_DO:1S IVSUFF_DO:1S PVSUFF_DO:1S
+enc0 mA_rel REL_PRON
+enc0 1p_dobj CVSUFF_DO:1P IVSUFF_DO:1P PVSUFF_DO:1P
+enc0 2ms_pron PRON_2MS
+enc0 2fs_poss POSS_PRON_2FS
+enc0 2ms_dobj IVSUFF_DO:2MS PVSUFF_DO:2MS
+enc0 3mp_dobj CVSUFF_DO:3MP IVSUFF_DO:3MP PVSUFF_DO:3MP
+enc0 3d_pron PRON_3D
+enc0 2mp_poss POSS_PRON_2MP
+enc0 lA_neg NEG_PART
+enc0 2fs_pron PRON_2FS
+enc0 2fs_dobj IVSUFF_DO:2FS PVSUFF_DO:2FS
+enc0 3d_dobj CVSUFF_DO:3D IVSUFF_DO:3D PVSUFF_DO:3D
+enc0 2mp_pron PRON_2MP
+enc0 2mp_dobj IVSUFF_DO:2MP PVSUFF_DO:2MP
+enc0 3fp_poss POSS_PRON_3FP
+enc0 man_rel REL_PRON
+enc0 2d_poss POSS_PRON_2D
+enc0 2fp_pron PRON_2FP
+enc0 3fp_pron PRON_3FP
+enc0 2fp_poss POSS_PRON_2FP
+enc0 3fp_dobj CVSUFF_DO:3FP IVSUFF_DO:3FP PVSUFF_DO:3FP
+enc0 2d_dobj IVSUFF_DO:2D PVSUFF_DO:2D
+enc0 ma_interrog INTERROG_PRON
+enc0 ma_rel REL_PRON
+enc0 mA_interrog INTERROG_PRON
+enc0 Ah_voc VOC_PART
+enc0 2fp_dobj IVSUFF_DO:2FP PVSUFF_DO:2FP
+enc0 2d_pron PRON_2D
+enc0 2d_pron PRON_2D
+enc0 man_interrog INTERROG_PRON
+enc0 ma_sub SUB_CONJ
+prc0 Al_det DET
+prc0 mA_neg NEG_PART
+prc0 lA_neg NEG_PART PSEUDO_VERB
+prc0 mA_part PART
+prc0 mA_rel REL_PRON
+prc1 li_prep PREP
+prc1 bi_prep PREP
+prc1 sa_fut FUT_PART
+prc1 ka_prep PREP
+prc1 wa_prep PREP
+prc1 la_prep PREP
+prc1 li_jus JUS_PART
+prc1 la_rc RC_PART
+prc1 ta_prep PREP
+prc1 bi_part PART
+prc1 la_emph EMPHATIC_PART
+prc1 fiy_prep PREP
+prc1 hA_dem DEM_PRON
+prc1 wA_voc VOC_PART
+prc1 yA_voc VOC_PART
+prc2 wa_conj CONJ
+prc2 fa_conj CONJ
+prc2 fa_conn CONNEC_PART
+prc2 wa_sub SUB_CONJ
+prc2 fa_rc RC_PART
+prc2 fa_sub SUB_CONJ
+prc2 wa_part PART
+prc3 >a_ques INTERROG_PART
+
+

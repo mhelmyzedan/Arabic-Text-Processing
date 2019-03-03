@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+~ Copyright (c) 2013. The Trustees of Columbia University in the City of New York.
+~ The copyright owner has no objection to the reproduction of this work by anyone for
+~ non-commercial use, but otherwise reserves all rights whatsoever.  For avoidance of
+~ doubt, this work may not be reproduced, or modified, in whole or in part, for commercial
+~ use without the prior written consent of the copyright owner.
+-->
+
+<!-- DOCTYPE user_configuration SYSTEM "resources/schema/ALMOR.xsd" -->
+<almor_input id="DOC_ID1" xmlns="urn:edu.columbia.ccls.common.almor.configuration:0.1">
+
+    <input_seg id="A_1">
+        <analysis_input dialect="MSA">
+            AsbAnyA tnfy tjmyd AlmsAEdp AlmmnwHp llmgrb
+        </analysis_input>
+    </input_seg>
+
+    <input_seg id="A_2">
+        <analysis_input  dialect="MSA" backoff="ADD_PROP">
+            ElY mr AlzmAn
+        </analysis_input>
+    </input_seg>
+
+
+    <input_seg id="G_1">
+        <generation_input  dialect="MSA">
+            <analysis>
+                <morph_feature_set lemma="miSoriy~_1" pos="adj" num="s" stt="i"/>
+            </analysis>
+        </generation_input>
+    </input_seg>
+
+    <input_seg id="G_2">
+        <generation_input  dialect="MSA">
+            <analysis>
+                <morph_feature_set lemma=">azomap_1" pos="noun" cas="g" num="p" per="3" />
+            </analysis>
+        </generation_input>
+    </input_seg>
+
+</almor_input>

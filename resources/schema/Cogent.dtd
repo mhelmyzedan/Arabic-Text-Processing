@@ -1,0 +1,70 @@
+<?xml encoding="UTF-8"?>
+
+<!--
+Cogent Configuration XML Schema
+
+-->
+
+<!ELEMENT cogent_configuration (overall_params,
+                                    training_params,
+                                    prediction_params)>
+<!ATTLIST cogent_configuration
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.cogent.configuration:0.1'>
+
+<!ELEMENT overall_params EMPTY>
+<!ATTLIST overall_params
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.cogent.configuration:0.1'
+  ML_tool CDATA #REQUIRED
+  model_directory CDATA #REQUIRED
+  model_group_name CDATA #REQUIRED
+  ML_tool_config_file CDATA #IMPLIED>
+
+<!ELEMENT training_params (training_model_group_params)>
+<!ATTLIST training_params
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.cogent.configuration:0.1'>
+
+<!ELEMENT training_model_group_params (training_model_params)+>
+<!ATTLIST training_model_group_params
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.cogent.configuration:0.1'>
+
+<!ELEMENT prediction_params (prediction_model_group_params)>
+<!ATTLIST prediction_params
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.cogent.configuration:0.1'
+  parallel_core_prediction NMTOKEN #IMPLIED>
+
+<!--
+Whether to allow different model predictions
+to be spun off into separate cores on processor
+-->
+
+<!ELEMENT prediction_model_group_params (prediction_model_params)+>
+<!ATTLIST prediction_model_group_params
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.cogent.configuration:0.1'>
+
+<!ELEMENT training_model_params EMPTY>
+<!ATTLIST training_model_params
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.cogent.configuration:0.1'
+  name CDATA #REQUIRED
+  max_feat_num CDATA #IMPLIED
+  min_feat_occur CDATA #IMPLIED
+  input_train_data_file CDATA #REQUIRED
+  feature_set CDATA #REQUIRED
+  dict_repair_threshold CDATA #IMPLIED>
+
+<!ELEMENT prediction_model_params EMPTY>
+<!ATTLIST prediction_model_params
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.cogent.configuration:0.1'
+  name CDATA #REQUIRED
+  input_pred_data_file CDATA #IMPLIED>
+
+<!--
+An identifier is a sequence of letters and digits. The first character
+must be a letter or the underscore character _. Upper and lower 
+case letters are different, and identifiers may have any length.
+-->
+
+<!ENTITY % identifier "CDATA">
+
+<!-- M.N, where M and N are positive integers.  -->
+
+<!ENTITY % version_num "CDATA">

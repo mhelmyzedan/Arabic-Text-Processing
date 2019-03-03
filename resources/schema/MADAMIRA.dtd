@@ -1,0 +1,240 @@
+<?xml encoding="UTF-8"?>
+
+<!--
+MADAMIRA Configuration XML Schema
+ TODO: Will need to expand TOKAN schemes later; for now, just these aliases
+-->
+
+<!ELEMENT error_report (#PCDATA)>
+<!ATTLIST error_report
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.madamira.configuration:0.1'
+  error_type CDATA #REQUIRED>
+
+<!ELEMENT madamira_input (madamira_configuration?,in_doc)>
+<!ATTLIST madamira_input
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.madamira.configuration:0.1'>
+
+<!ELEMENT madamira_output (out_doc)>
+<!ATTLIST madamira_output
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.madamira.configuration:0.1'>
+
+<!ELEMENT out_doc (out_seg)*>
+<!ATTLIST out_doc
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.madamira.configuration:0.1'
+  id CDATA #REQUIRED>
+
+<!ELEMENT madamira_configuration (preprocessing?,
+                                      overall_vars?,
+                                      requested_output?,
+                                      tokenization?)>
+<!ATTLIST madamira_configuration
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.madamira.configuration:0.1'>
+
+<!ELEMENT preprocessing EMPTY>
+<!ATTLIST preprocessing
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.madamira.configuration:0.1'
+  separate_punct NMTOKEN #IMPLIED
+  sentence_ids NMTOKEN #IMPLIED
+  input_encoding (Buckwalter|SafeBW|UTF8) #IMPLIED>
+
+<!ELEMENT overall_vars EMPTY>
+<!ATTLIST overall_vars
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.madamira.configuration:0.1'
+  output_analyses (ALL|TOP) #IMPLIED
+  output_encoding (Buckwalter|SafeBW|UTF8) #IMPLIED
+  dialect (MSA|EGY) #IMPLIED
+  morph_backoff (NONE|NOAN_PROP|NOAN_ALL|ADD_PROP|ADD_ALL) #IMPLIED
+  analyze_only NMTOKEN #IMPLIED>
+
+<!ELEMENT requested_output (req_variable)*>
+<!ATTLIST requested_output
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.madamira.configuration:0.1'>
+
+<!ELEMENT req_variable EMPTY>
+<!ATTLIST req_variable
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.madamira.configuration:0.1'
+  name (BPC|NER|STEM|GLOSS|LEMMA|DIAC|POS|GEN|NUM|PER|ASP|CAS|ENC0|ENC1
+        |ENC2|MOD|PRC0|PRC1|PRC2|PRC3|STT|VOX|BW|SOURCE|PREPROCESSED
+        |PREGLOSS|SUFGLOSS|LENGTH|OFFSET|TYPE) #REQUIRED
+  value NMTOKEN #REQUIRED>
+
+<!--
+tokenization_ref =
+   element tokenization {
+       element scheme {
+           attribute alias { "ATB" | "D3" | "ATB4MT" | "D34MT" | "D1" | "D2" | "D3_BWFORM" |
+                             "ATB_BWFORM" | "D3_BWPOS" | "ATB_EVAL"  | "ATB_BWFORM_EVAL" | xsd:string }
+       }*
+   }
+-->
+
+<!-- proposed tokenization with schema language extension -->
+
+<!ELEMENT tokenization (scheme)*>
+<!ATTLIST tokenization
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.madamira.configuration:0.1'>
+
+<!ELEMENT scheme (scheme_override)?>
+<!ATTLIST scheme
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.madamira.configuration:0.1'
+  alias CDATA #REQUIRED>
+
+<!ELEMENT scheme_override (split_term_spec*,
+                               token_form_spec*)>
+<!ATTLIST scheme_override
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.madamira.configuration:0.1'
+  alias CDATA #REQUIRED
+  token_delimiter CDATA #IMPLIED
+  proclitic_delimiter CDATA #IMPLIED
+  stem_delimiter CDATA #IMPLIED
+  enclitic_delimiter CDATA #IMPLIED
+  form_delimiter CDATA #IMPLIED
+  mark_no_analysis NMTOKEN #IMPLIED
+  include_non_arabic NMTOKEN #IMPLIED
+  tokenize_from_BW NMTOKEN #IMPLIED>
+
+<!ELEMENT split_term_spec EMPTY>
+<!ATTLIST split_term_spec
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.madamira.configuration:0.1'
+  term CDATA #REQUIRED>
+
+<!ELEMENT token_form_spec (normalization)*>
+<!ATTLIST token_form_spec
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.madamira.configuration:0.1'
+  proclitic_mark CDATA #IMPLIED
+  enclitic_mark CDATA #IMPLIED
+  token_form_base (WORD|POS_MADA|POS_BW|POS_CATIB|POS_PENN|POS_ALMOR
+                   |LEXEME|GLOSS|STEM|SURF|BWFORM|BWTAG) #IMPLIED
+  transliteration (Buckwalter|UTF8|Safe_Buckwalter) #IMPLIED>
+
+<!ELEMENT normalization EMPTY>
+<!ATTLIST normalization
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.madamira.configuration:0.1'
+  type (ALEF|YAA|DIGIT|LEFTPAREN|RIGHTPAREN|TEHMARBUTA|HAMZA|PAREN|LEX
+        |DIAC) #REQUIRED>
+
+<!ELEMENT in_doc (in_seg)*>
+<!ATTLIST in_doc
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.madamira.configuration:0.1'
+  id CDATA #REQUIRED>
+
+<!ELEMENT in_seg (#PCDATA)>
+<!ATTLIST in_seg
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.madamira.configuration:0.1'
+  id CDATA #REQUIRED>
+
+<!ELEMENT out_seg (segment_info,word_info)>
+<!ATTLIST out_seg
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.madamira.configuration:0.1'
+  id CDATA #REQUIRED>
+
+<!ELEMENT segment_info (preprocessed?,bpc?,ner?)>
+<!ATTLIST segment_info
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.madamira.configuration:0.1'>
+
+<!ELEMENT preprocessed (#PCDATA)>
+<!ATTLIST preprocessed
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.madamira.configuration:0.1'>
+
+<!ELEMENT bpc (chunk)*>
+<!ATTLIST bpc
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.madamira.configuration:0.1'>
+
+<!ELEMENT chunk (tok)+>
+<!ATTLIST chunk
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.madamira.configuration:0.1'
+  id CDATA #REQUIRED
+  type CDATA #REQUIRED>
+
+<!ELEMENT ner (ne)*>
+<!ATTLIST ner
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.madamira.configuration:0.1'>
+
+<!ELEMENT ne (tok)+>
+<!ATTLIST ne
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.madamira.configuration:0.1'
+  id CDATA #REQUIRED
+  type CDATA #REQUIRED>
+
+<!ELEMENT tok EMPTY>
+<!ATTLIST tok
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.madamira.configuration:0.1'
+  id CDATA #REQUIRED
+  form0 CDATA #IMPLIED
+  form1 CDATA #IMPLIED
+  form2 CDATA #IMPLIED
+  form3 CDATA #IMPLIED
+  form4 CDATA #IMPLIED
+  form5 CDATA #IMPLIED
+  form6 CDATA #IMPLIED
+  form7 CDATA #IMPLIED
+  form8 CDATA #IMPLIED
+  form9 CDATA #IMPLIED>
+
+<!ELEMENT word_info (word)*>
+<!ATTLIST word_info
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.madamira.configuration:0.1'>
+
+<!ELEMENT word (svm_prediction?,analysis*,tokenized*)>
+<!ATTLIST word
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.madamira.configuration:0.1'
+  id CDATA #REQUIRED
+  word CDATA #REQUIRED
+  length CDATA #IMPLIED
+  offset CDATA #IMPLIED
+  type (ARABIC|NON-ARABIC|NO-ANALYSIS) #IMPLIED>
+
+<!ELEMENT svm_prediction (morph_feature_set)>
+<!ATTLIST svm_prediction
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.madamira.configuration:0.1'>
+
+<!ELEMENT analysis (morph_feature_set)>
+<!ATTLIST analysis
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.madamira.configuration:0.1'
+  rank CDATA #IMPLIED
+  score CDATA #IMPLIED>
+
+<!ELEMENT tokenized (tok)*>
+<!ATTLIST tokenized
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.madamira.configuration:0.1'
+  scheme CDATA #REQUIRED>
+
+<!ELEMENT morph_feature_set EMPTY>
+<!ATTLIST morph_feature_set
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.madamira.configuration:0.1'
+  diac CDATA #IMPLIED
+  lemma CDATA #IMPLIED
+  bw CDATA #IMPLIED
+  gloss CDATA #IMPLIED
+  pregloss CDATA #IMPLIED
+  sufgloss CDATA #IMPLIED
+  pos CDATA #IMPLIED
+  prc3 CDATA #IMPLIED
+  prc2 CDATA #IMPLIED
+  prc1 CDATA #IMPLIED
+  prc0 CDATA #IMPLIED
+  per CDATA #IMPLIED
+  asp CDATA #IMPLIED
+  vox CDATA #IMPLIED
+  mod CDATA #IMPLIED
+  gen CDATA #IMPLIED
+  num CDATA #IMPLIED
+  stt CDATA #IMPLIED
+  cas CDATA #IMPLIED
+  enc0 CDATA #IMPLIED
+  enc1 CDATA #IMPLIED
+  enc2 CDATA #IMPLIED
+  source CDATA #IMPLIED
+  stem CDATA #IMPLIED>
+
+<!--
+An identifier is a sequence of letters and digits. The first character
+must be a letter or the underscore character _. Upper and lower
+case letters are different, and identifiers may have any length.
+-->
+
+<!ENTITY % identifier "CDATA">
+
+<!-- M.N, where M and N are positive integers. -->
+
+<!ENTITY % version_num "CDATA">

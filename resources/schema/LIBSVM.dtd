@@ -1,0 +1,49 @@
+<?xml encoding="UTF-8"?>
+
+<!--
+Cogent SVM Configuration XML Schema
+
+-->
+
+<!ELEMENT LIBSVM_configuration (overall_params,
+                                    training_params,
+                                    prediction_params)>
+<!ATTLIST LIBSVM_configuration
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.cogent.libSVM.configuration:0.1'>
+
+<!ELEMENT overall_params EMPTY>
+<!ATTLIST overall_params
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.cogent.libSVM.configuration:0.1'
+  svm_type (C_SVC|NU_SVC|ONE_CLASS|EPSILON_SVR|NU_SVR) #IMPLIED
+  kernel_type (LINEAR|POLY|RBF|SIGMOID) #IMPLIED
+  degree CDATA #IMPLIED
+  gamma CDATA #IMPLIED
+  coeff0 CDATA #IMPLIED>
+
+<!ELEMENT training_params EMPTY>
+<!ATTLIST training_params
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.cogent.libSVM.configuration:0.1'
+  cache_size CDATA #IMPLIED
+  eps CDATA #IMPLIED
+  C_parameter CDATA #IMPLIED
+  nu_parameter CDATA #IMPLIED
+  p_parameter CDATA #IMPLIED
+  shrinking NMTOKEN #IMPLIED
+  probability NMTOKEN #IMPLIED>
+
+<!ELEMENT prediction_params EMPTY>
+<!ATTLIST prediction_params
+  xmlns CDATA #FIXED 'urn:edu.columbia.ccls.cogent.libSVM.configuration:0.1'
+  predict_probs NMTOKEN #IMPLIED>
+
+<!--
+An identifier is a sequence of letters and digits. The first character
+must be a letter or the underscore character _. Upper and lower 
+case letters are different, and identifiers may have any length.
+-->
+
+<!ENTITY % identifier "CDATA">
+
+<!-- M.N, where M and N are positive integers.  -->
+
+<!ENTITY % version_num "CDATA">
