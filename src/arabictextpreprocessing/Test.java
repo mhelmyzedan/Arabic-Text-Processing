@@ -19,6 +19,7 @@ import edu.columbia.ccls.madamira.configuration.Tok;
 import edu.columbia.ccls.madamira.configuration.Word;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
@@ -41,113 +42,16 @@ import org.json.simple.parser.JSONParser;
 
 //MADAMIRA transforms the Farsi characters into their equivalents in Arabic. For ex:  گ، پ، ژ، چ to ك,ب,ز,ج
 
-public class MADAMIRA_preProcessing {
+public class Test {
     // MADAMIRA namespace as defined by its XML schema
     private static final String MADAMIRA_NS = "edu.columbia.ccls.madamira.configuration";
     private static final String INPUT_FILE = "/mnt/HDD/AraWordEmbedding/test/SampleInputFile.xml";
     private static final String OUTPUT_FILE = "/mnt/HDD/AraWordEmbedding/test/sampleOutputFile.xml";
 
     public static void main(String [] args) throws Exception{
-        //preprocessSingleFile("/mnt/HDD/arWE/resources/Wikipedia/wikipediaProcessedTxt.txt3", "Wikipedia", false);
-        preprocessSingleFile("/mnt/HDD/arWE/resources/ArabicWeb16/processed03.json", "ArabicWeb16", true);
-        //preprocess();
+        preprocess();
         //testStanfordSegmenter();
-    } 
-    public static void preprocessSingleFile(String filePath, String suffix, boolean isJSON) throws Exception{
-        //Normalization =====> Take care
-        ClassLoader classLoader = MADAMIRA_preProcessing.class.getClassLoader();
-	InputStream is = classLoader.getResourceAsStream("configFile.txt");
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
-        String configStr = "";
-        for (String line; (line = reader.readLine()) != null;) 
-            configStr += line;
-        is.close();
-        reader.close();
-        PrintStream segmentedFile = new PrintStream( new FileOutputStream("/mnt/HDD/arWE/resources/ProcessedFiles/segmented_" + suffix + ".txt", true), true, "UTF-8");
-        PrintStream lemmatizedFile = new PrintStream( new FileOutputStream("/mnt/HDD/arWE/resources/ProcessedFiles/lemmatized_" + suffix + ".txt", true), true, "UTF-8");
-        PrintStream stemmedFile = new PrintStream( new FileOutputStream("/mnt/HDD/arWE/resources/ProcessedFiles/stemmed_" + suffix + ".txt", true), true, "UTF-8");
-        PrintStream errorsFile = new PrintStream( new FileOutputStream("/mnt/HDD/arWE/resources/ProcessedFiles/errors_" + suffix + ".txt", true), true, "UTF-8");
-        
-        final MADAMIRAWrapper wrapper = new MADAMIRAWrapper();
-        JAXBContext jc = JAXBContext.newInstance(MADAMIRA_NS);
-        Unmarshaller unmarshaller = jc.createUnmarshaller();
-        MadamiraInput input;
-        MadamiraOutput output;
-        JSONParser parser = new JSONParser();
-        int count = 0;
-        String line = "";
-        
-        //String filePath = "/mnt/HDD/arWE/resources/Wikipedia/wikipediaProcessedTxt.txt3";
-        reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), StandardCharsets.UTF_8));            
-        for (; (line = reader.readLine()) != null;){
-            count++;
-            /*if(count < 9378)
-                continue;*/
-            try {
-                if(isJSON){
-                    JSONObject jsonObject = ((JSONObject)parser.parse(line.trim()));
-                    line = ((String)jsonObject.get("title")) + " . " +((String)jsonObject.get("text"));//.replaceAll("[&<>]", " ");
-                    /*System.out.println(line);
-                    return;*/
-                }
-
-                String txt = configStr + line.trim() + "</in_seg></in_doc></madamira_input>";
-                input = (MadamiraInput)unmarshaller.unmarshal(new ByteArrayInputStream(txt.getBytes(StandardCharsets.UTF_8)));
-                output = wrapper.processString(input);
-                List<OutSeg> outSegs = output.getOutDoc().getOutSeg();
-                StringBuffer segmentedText = new StringBuffer();
-                StringBuffer lemmatizedText = new StringBuffer();
-                StringBuffer stemmedText = new StringBuffer();
-                for (OutSeg outSeg : outSegs) {
-                    List<Chunk> chunks = outSeg.getSegmentInfo().getBpc().getChunk();                    
-                    for (Chunk chunk : chunks) {
-                        List<Tok> toks = chunk.getTok();
-                        for (Tok tok : toks) {
-                            segmentedText.append(tok.getForm0() + " ");                            
-                        }                        
-                    }
-                    List<Word> words = outSeg.getWordInfo().getWord();
-                    for(Word word : words){
-                        //System.out.println(word.getWord());
-                        if(word.getAnalysis().size() > 0){
-                            lemmatizedText.append(word.getAnalysis().get(0).getMorphFeatureSet().getLemma() + " ");
-                            stemmedText.append(word.getAnalysis().get(0).getMorphFeatureSet().getStem()+ " ");
-                        }
-                        else{
-                            lemmatizedText.append(word.getWord() + " ");
-                            stemmedText.append(word.getWord() + " ");
-                        }
-                    }
-                }
-                //out.println(ArabicDocProcessing.removeNonArabicText(segmentedText.toString().trim()));
-                segmentedFile.println(segmentedText.toString().trim().replaceAll("[^\u0621-\u063A\u0641-\u064A ]+", "").replaceAll("[ ]{2,}", " "));
-                lemmatizedFile.println(lemmatizedText.toString().trim().replaceAll("[^\u0621-\u063A\u0641-\u064A ]+", "").replaceAll("[ ]{2,}", " "));
-                stemmedFile.println(stemmedText.toString().trim().replaceAll("[^\u0621-\u063A\u0641-\u064A ]+", "").replaceAll("[ ]{2,}", " "));                
-                /*if(count>3)
-                    break;*/
-                System.out.println(count + " : " + filePath);
-            }/* catch (JAXBException ex) {
-                System.out.println("Error marshalling or unmarshalling data: ");
-                ex.printStackTrace();
-            } catch (InterruptedException ex) {
-                System.out.println("MADAMIRA thread interrupted: "
-                        +ex.getMessage());
-            } catch (ExecutionException ex) {
-                System.out.println("Unable to retrieve result of task. " +
-                        "MADAMIRA task may have been aborted: "+ex.getCause());
-            }*/ catch(Exception e){
-                System.out.println(count + " : Exception");
-                e.printStackTrace();
-                errorsFile.println(line.trim());
-            }
-        }
-        segmentedFile.close();
-        lemmatizedFile.close();
-        stemmedFile.close();
-        errorsFile.close();
-        wrapper.shutdown();
-    }
-    
+    }     
     public static void preprocess() throws Exception{
         //Normalization =====> Take care
         ClassLoader classLoader = MADAMIRA_preProcessing.class.getClassLoader();
@@ -160,10 +64,9 @@ public class MADAMIRA_preProcessing {
         reader.close();
         Path start = Paths.get("/mnt/HDD/AraWordEmbedding/resources/Wikipedia/WikipediaPages_JSON");
         String finalFilePath = "/mnt/HDD/AraWordEmbedding/test/originalFile.txt";
-        PrintStream segmentedFile = new PrintStream( new FileOutputStream("/mnt/HDD/AraWordEmbedding/resources/Wikipedia/segmentedFile.txt", true), true, "UTF-8");
-        PrintStream lemmatizedFile = new PrintStream( new FileOutputStream("/mnt/HDD/AraWordEmbedding/resources/Wikipedia/lemmatizedFile.txt", true), true, "UTF-8");
-        PrintStream stemmedFile = new PrintStream( new FileOutputStream("/mnt/HDD/AraWordEmbedding/resources/Wikipedia/stemmedFile.txt", true), true, "UTF-8");
-        PrintStream errorsFile = new PrintStream( new FileOutputStream("/mnt/HDD/arWE/resources/ProcessedFiles/errors_Wikipedia.txt", true), true, "UTF-8");
+        PrintStream segmentedFile = new PrintStream( new FileOutputStream("/mnt/HDD/AraWordEmbedding/resources/Wikipedia/segmentedFileTest.txt"), true, "UTF-8");
+        PrintStream lemmatizedFile = new PrintStream( new FileOutputStream("/mnt/HDD/AraWordEmbedding/resources/Wikipedia/lemmatizedFileTest.txt"), true, "UTF-8");
+        PrintStream stemmedFile = new PrintStream( new FileOutputStream("/mnt/HDD/AraWordEmbedding/resources/Wikipedia/stemmedFileTest.txt"), true, "UTF-8");
         List<String> collect;
         try (Stream<Path> stream = Files.walk(start, Integer.MAX_VALUE)) {
 	    collect = stream.filter(Files::isRegularFile)
@@ -180,23 +83,37 @@ public class MADAMIRA_preProcessing {
         MadamiraOutput output;
         JSONParser parser = new JSONParser();
         int count = 0;
-        String line = "";
         try {
             for(String filePath : collect){
                 // The structure of the MadamiraInput object is exactly similar to the
                 // madamira_input element in the XML
                 
                 //String filePath1 = "/mnt/HDD/AraWordEmbedding/test/SampleInputFile.xml";
-                reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), StandardCharsets.UTF_8));
-                for (; (line = reader.readLine()) != null;){
+                reader = new BufferedReader(new InputStreamReader(new FileInputStream("/mnt/HDD/AraWordEmbedding/resources/Wikipedia/WikipediaPages_JSON/AA/wiki_68"), StandardCharsets.UTF_8));
+                for (String line; (line = reader.readLine()) != null;){
                     line = ((String)((JSONObject)parser.parse(line)).get("text")).replaceAll("[&<>]", " ");
-                    /*if(line.contains("ماوراءالنهر")){
-                        System.out.println(filePath);
-                        System.exit(0);                        
+                    if(line.contains("ماوراءالنهر")){
+                        System.out.println(line.split("\u06CC").length);
+                        //PrintStream s = new PrintStream( new FileOutputStream("/mnt/HDD/AraWordEmbedding/resources/Wikipedia/test/t.txt"), true, "UTF-8");
+                        //s.print(line);
+                        //s.close();
+                        //continue;
+                        //System.out.println(filePath);
+                        //System.exit(0);
+                        line = line.replaceAll("\u06CC", "\u064A");
+                        System.out.println(line.split("\u06CC").length);
                     }
-                    else continue;*/
+                    else continue;
                     //line.matches("")
-                    String txt = configStr + line + "</in_seg></in_doc></madamira_input>";
+                    String[] subLines = line.split("[\\.\\,]");
+                    System.err.println("subLines: " + subLines.length );
+                    String txt = configStr;
+                    for (int i=0; i<subLines.length-1; i++) {
+                        txt += subLines[i] + "</in_seg><in_seg>";
+                        if(i==3)
+                            System.out.println(txt);
+                    }
+                    txt += subLines[subLines.length-1] + "</in_seg></in_doc></madamira_input>";    
                     input = (MadamiraInput)unmarshaller.unmarshal(new ByteArrayInputStream(txt.getBytes(StandardCharsets.UTF_8)));
 
                     /*{
@@ -251,7 +168,7 @@ public class MADAMIRA_preProcessing {
                     }*/
 
 
-                    //jc.createMarshaller().marshal(output, new File(OUTPUT_FILE));
+                    jc.createMarshaller().marshal(output, new File(OUTPUT_FILE));
                     /*count++;
                     if(count>3)
                         break;*/
@@ -259,6 +176,7 @@ public class MADAMIRA_preProcessing {
                 }
                 //break;
                 System.out.println(count++ + " : " + filePath);
+                break;
             }
             segmentedFile.close();
             lemmatizedFile.close();
@@ -273,10 +191,6 @@ public class MADAMIRA_preProcessing {
         } catch (ExecutionException ex) {
             System.out.println("Unable to retrieve result of task. " +
                     "MADAMIRA task may have been aborted: "+ex.getCause());
-        } catch(Exception e){
-            System.out.println(count + " : Exception");
-            e.printStackTrace();
-            errorsFile.println(line.trim());
         }
 
         wrapper.shutdown();
