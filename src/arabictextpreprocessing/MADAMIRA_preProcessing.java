@@ -46,42 +46,52 @@ public class MADAMIRA_preProcessing {
     private static final String MADAMIRA_NS = "edu.columbia.ccls.madamira.configuration";
     private static final String INPUT_FILE = "/mnt/HDD/AraWordEmbedding/test/SampleInputFile.xml";
     private static final String OUTPUT_FILE = "/mnt/HDD/AraWordEmbedding/test/sampleOutputFile.xml";
-
+    static BufferedReader reader;
+    static String configStr;
+    static MadamiraInput input;
+    static MadamiraOutput output;
+    static MADAMIRAWrapper wrapper;
+    static Unmarshaller unmarshaller;
+    static JSONParser parser;
+    static PrintStream segmentedFile, lemmatizedFile, stemmedFile, errorsFile;
+    static String suffix;
     public static void main(String [] args) throws Exception{
+        MADAMIRA_preProcessing mp = new MADAMIRA_preProcessing("ArabicWeb01");
+        mp.preprocessFiles("/mnt/HDD/arWE/resources/ArabicWeb16/ProcessedFiles");
         //preprocessSingleFile("/mnt/HDD/arWE/resources/Wikipedia/wikipediaProcessedTxt.txt3", "Wikipedia", false);
-        preprocessSingleFile("/mnt/HDD/arWE/resources/ArabicWeb16/processed03.json", "ArabicWeb16", true);
+        //preprocessSingleFile("/mnt/HDD/arWE/resources/ArabicWeb16/processed01.json", "ArabicWeb16", true);
         //preprocess();
         //testStanfordSegmenter();
     } 
-    public static void preprocessSingleFile(String filePath, String suffix, boolean isJSON) throws Exception{
-        //Normalization =====> Take care
+    public MADAMIRA_preProcessing(String suffix) throws Exception{
+        this.suffix = suffix;
         ClassLoader classLoader = MADAMIRA_preProcessing.class.getClassLoader();
-	InputStream is = classLoader.getResourceAsStream("configFile.txt");
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
-        String configStr = "";
+        InputStream is = classLoader.getResourceAsStream("configFile.txt");
+        reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
+        configStr = "";
         for (String line; (line = reader.readLine()) != null;) 
             configStr += line;
         is.close();
         reader.close();
-        PrintStream segmentedFile = new PrintStream( new FileOutputStream("/mnt/HDD/arWE/resources/ProcessedFiles/segmented_" + suffix + ".txt", true), true, "UTF-8");
-        PrintStream lemmatizedFile = new PrintStream( new FileOutputStream("/mnt/HDD/arWE/resources/ProcessedFiles/lemmatized_" + suffix + ".txt", true), true, "UTF-8");
-        PrintStream stemmedFile = new PrintStream( new FileOutputStream("/mnt/HDD/arWE/resources/ProcessedFiles/stemmed_" + suffix + ".txt", true), true, "UTF-8");
-        PrintStream errorsFile = new PrintStream( new FileOutputStream("/mnt/HDD/arWE/resources/ProcessedFiles/errors_" + suffix + ".txt", true), true, "UTF-8");
-        
-        final MADAMIRAWrapper wrapper = new MADAMIRAWrapper();
+        segmentedFile = new PrintStream( new FileOutputStream("/mnt/HDD/arWE/resources/ProcessedFiles/segmented_" + suffix + ".txt", true), true, "UTF-8");
+        lemmatizedFile = new PrintStream( new FileOutputStream("/mnt/HDD/arWE/resources/ProcessedFiles/lemmatized_" + suffix + ".txt", true), true, "UTF-8");
+        stemmedFile = new PrintStream( new FileOutputStream("/mnt/HDD/arWE/resources/ProcessedFiles/stemmed_" + suffix + ".txt", true), true, "UTF-8");
+        errorsFile = new PrintStream( new FileOutputStream("/mnt/HDD/arWE/resources/ProcessedFiles/errors_" + suffix + ".txt", true), true, "UTF-8");
+
+        wrapper = new MADAMIRAWrapper();
         JAXBContext jc = JAXBContext.newInstance(MADAMIRA_NS);
-        Unmarshaller unmarshaller = jc.createUnmarshaller();
-        MadamiraInput input;
-        MadamiraOutput output;
-        JSONParser parser = new JSONParser();
+        unmarshaller = jc.createUnmarshaller();            
+        parser = new JSONParser();        
+    }
+    public static void preprocessSingleFile(String filePath, boolean isJSON) throws Exception{
+        //Normalization =====> Take care
         int count = 0;
         String line = "";
-        
         //String filePath = "/mnt/HDD/arWE/resources/Wikipedia/wikipediaProcessedTxt.txt3";
         reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), StandardCharsets.UTF_8));            
         for (; (line = reader.readLine()) != null;){
             count++;
-            /*if(count < 9378)
+            /*if(count < 6037)
                 continue;*/
             try {
                 if(isJSON){
@@ -126,20 +136,31 @@ public class MADAMIRA_preProcessing {
                 /*if(count>3)
                     break;*/
                 System.out.println(count + " : " + filePath);
-            }/* catch (JAXBException ex) {
-                System.out.println("Error marshalling or unmarshalling data: ");
-                ex.printStackTrace();
-            } catch (InterruptedException ex) {
-                System.out.println("MADAMIRA thread interrupted: "
-                        +ex.getMessage());
-            } catch (ExecutionException ex) {
-                System.out.println("Unable to retrieve result of task. " +
-                        "MADAMIRA task may have been aborted: "+ex.getCause());
-            }*/ catch(Exception e){
+            } catch(Exception e){
                 System.out.println(count + " : Exception");
                 e.printStackTrace();
                 errorsFile.println(line.trim());
             }
+        }
+    }
+    public static void preprocessFiles(String dirPath){
+        //Normalization =====> Take care
+        try{
+            Path start = Paths.get(dirPath);
+            List<String> collect;
+            try (Stream<Path> stream = Files.walk(start, Integer.MAX_VALUE)) {
+                collect = stream.filter(Files::isRegularFile)
+                    .map(String::valueOf)
+                    .sorted()
+                    .collect(Collectors.toList());
+                //collect.forEach(System.out::println);
+            }
+            for(String filePath : collect){
+                if(filePath.startsWith(dirPath + "/processed"))
+                    preprocessSingleFile(filePath, true);
+            }            
+        } catch(Exception e){
+            e.printStackTrace();
         }
         segmentedFile.close();
         lemmatizedFile.close();
